@@ -1,0 +1,383 @@
+body {
+	margin: 0;
+}
+
+
+
+.container {
+	display: grid;
+	height: 100vh;
+	width: 100vw;
+	background-color: #EADFDD;
+}
+
+
+.container-auth {
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.h2-login {
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 5vh;
+}
+
+.input-text {
+	font-size: 30px;
+	border-width: 0px 0px 5px 0px;
+	border-color: black;
+	margin-bottom: 5vh;
+	background-color: #EADFDD;
+}
+
+.input-text:focus {
+	outline: none;
+}
+
+.login-form {
+	justify-self: center;
+	grid-column: span 2;
+}
+
+.logo-img-auth {
+	max-width: 7vw;
+	height: auto;
+}
+
+.logo-auth {
+	display: flex;
+	align-items: center;
+	grid-column: span 2;
+	justify-self: center;
+	text-align: left;
+	font-size: 26px;
+
+}
+
+.logo {
+	display: flex;
+	grid-column: span 4;
+	text-align: left;
+	font-size: 10px;
+	align-items: center;
+}
+
+.logo-img {
+	max-width: 5vw;
+	height: 5vh;
+}
+
+.container-main {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 70vw 30vw;
+	grid-template-areas:
+    "header header"
+    "slogan baby-img"
+}
+
+.nav-head ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-head ul li {
+	display: flex;
+	margin: 2vh 0 0 6vw;	
+	text-align: left;
+	font-weight: bold;
+	font-size: 1.2vw;
+}
+
+.nav-head {
+	grid-area: header;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.about {
+	margin-left: 10vw;
+}
+
+.nav-head .enter {
+	margin-left: 16vw;
+	border: 0.3vh solid black;
+	border-radius: 2vh;
+	padding: 0.5vh 1vw 0 1vw;
+	max-height: 3vh;
+}
+
+.baby-img {
+	height:auto;
+	width: 27vw;
+	grid-area: baby-img;
+	margin-bottom: 10vh;
+}
+
+.slogan {
+	grid-area: slogan;
+	justify-self: center;
+	align-self: center;
+	font-size: 30px;
+	margin-bottom: 12vh;
+}
+
+.slogan h1 {
+	margin-left: 12vw;
+}
+
+.button-sign {
+	background-color: #EADFDD;
+	border-radius: 13px;
+	font-size: 40px;
+	font-weight: bold;
+	border: 3px solid black;
+	padding: 1vh 0.5vw 1vh 0.5vw;
+	margin: 0 0 5vh 12vw;
+}
+
+.slogan ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.slogan ul li {
+	
+	margin-right: 4vw;
+	border: 2px solid black;
+	padding: 1vh 1vw 1vh 1vw;
+	border-radius: 20px;
+	max-width: 10vw;
+}
+
+.container-structure {
+	grid-template-rows: 10vh 20vh 70vh;
+	grid-template-columns: 50vw 50vw;
+	grid-template-areas:
+	"header header"
+	"main main"
+	"list list"
+}
+
+.structure {
+	grid-area: main;
+	justify-self: center;
+	align-self: self-end;
+	font-size: 3vh;
+	margin-top: 0.5vh;
+}
+
+.nav-list {
+	grid-area: list;
+	justify-self: center;
+	font-size: 4vh;
+	width: 36vw;
+}
+
+.nav-list ul {
+	list-style: none;
+	
+}
+
+
+
+.nav-list ul li {
+	background-color: #D9D0CF;
+	margin-bottom: 1.4vh;
+	background-image: url(../Картинки/sign-2.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding-left: 2.4vw;
+}
+
+.container-view-structure {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 25vw 75vw;
+	grid-template-areas: 
+	"header header"
+	"articles list";
+}
+
+.articles {
+	grid-area: articles;
+	align-self: center;
+	background-color: #F9EBE9;
+}
+
+.articles h1 {
+	margin-left: 6vw;
+	font-size: 4vh;
+}
+
+
+.view-list {
+	font-size: 4vh;
+}
+
+.view-list ul {
+	list-style: none;
+	text-align: center;
+}
+
+.content {
+	align-self: center;
+	margin-left: 1vw;
+	margin-right: 3vw;
+	margin-bottom: 32vh;
+	font-size: 3vh;
+}
+
+.content h1 {
+	font-size: 4vh;
+	margin-left: 2vw;
+}
+
+.content-list ul {
+	list-style: none;
+}
+
+.content-list ul li {
+	background-color: #D9D0CF;
+	margin-bottom: 1.4vh;
+	background-image: url(../Картинки/sign-2.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding: 0.5vh 0 0.5vh 2vw;
+}
+
+.container-services {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 50vw 50vw;
+	grid-template-areas: 
+	"header header"
+	"table table";
+}
+
+.table-content {
+	grid-area: table;
+	align-self: self-start;
+	justify-self: center;
+	
+}
+
+.table-services {
+	background-color: #D7D0CF;
+	border-collapse: collapse;
+	margin-top: 7vh;
+}
+
+.table-services td,
+th
+{
+	width: 25vw;
+	text-align: center;
+	font-size: 4vh;
+	border: 2px solid black;
+	
+}
+
+.table-content h1 {
+	margin-left: 28vw;
+	font-size: 5vh;
+}
+
+th.no-border-left,
+td.no-border-left {
+	border-left: none;
+}
+
+th.no-border-right,
+td.no-border-right {
+	border-right: none;
+}
+
+.container-appoinment {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 100vw;
+	grid-template-areas:
+	"header"
+	"appointment";
+}
+
+.form-appointment {
+	grid-area: appointment;
+	justify-self: center;
+	font-size: 4vh;
+}
+
+.form-appointment select {
+	font-size: 2.5vh;
+}
+
+.form-appointment h1 {
+	margin-bottom: 10vh;
+}
+
+.container-account {
+	grid-template-rows: 10vh 45vh 45vh;
+	grid-template-columns: 30vw 70vw;
+	grid-template-areas: 
+	"header header"
+	"side information"
+	"side information";
+	
+}
+
+.account-content {
+	grid-area: information;
+	align-self: self-start;
+	
+}
+
+.side {
+	grid-area: side;
+	align-self: center;
+	justify-self: center;
+	background-color: #F9EBE9;
+	font-size: 6vh;
+	width: 25vw;
+	border: 2px solid black;
+}
+
+.label-information {
+	height: 16vh;
+	padding-top: 4vh;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.label-reservations {
+	height: 35vh;
+	border-top: 2px solid black;
+	align-items: center;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 10vh;
+}
+
+.account-content h1 {
+	font-size: 5vh;
+}
+
+.information {
+	margin-top: 6vh;
+	font-size: 4vh;
+}
+
+.table-reservations {
+	font-size: 4vh;
+	text-align: center;
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+
+.table-reservations td{
+	border: 2px solid black;
+}
