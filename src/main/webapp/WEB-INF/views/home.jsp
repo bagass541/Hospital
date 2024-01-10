@@ -11,11 +11,11 @@
         <nav class="nav-head">
             <ul>
                 <li class="logo-main"><img class="logo-img" src = "images/logo.png">
-                    <a href="#">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
+                    <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="home/about-us">О нас</a></li>
-                <li><a href='home/services'>Платные услуги</a></li>
-                <li><a href='home/list-structure'>Наша структура</a></li>
-                <li><a href='home/contacts'>Контакты</a></li>
+                <li><a href='services'>Платные услуги</a></li>
+                <li><a href='list-structure'>Наша структура</a></li>
+                <li><a href='contacts'>Контакты</a></li>
                 <li class="enter"><a href='login'>Вход</a></li>
             </ul>
         </nav>

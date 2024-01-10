@@ -11,7 +11,7 @@
         <nav class="nav-head">
             <ul>
                 <li class="logo-main"><img class="logo-img" src = "../../images/logo.png" >
-                    <a href="#">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
+                    <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="#">О нас</a></li>
                 <li><a href='#'>Платные услуги</a></li>
                 <li><a href='#'>Наша структура</a></li>
