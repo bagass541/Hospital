@@ -35,6 +35,14 @@ body {
 	outline: none;
 }
 
+.button-OK {
+	width: 15vw;
+	height: 6vh;
+	font-size: 3.5vh;
+	margin-left: 2.7vw;
+	background-color: #EADFDD;
+}
+
 .login-form {
 	justify-self: center;
 	grid-column: span 2;

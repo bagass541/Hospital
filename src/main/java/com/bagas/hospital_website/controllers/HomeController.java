@@ -32,4 +32,5 @@ public class HomeController {
 	public String showContacts() {
 		return "contacts";
 	}
+
 }

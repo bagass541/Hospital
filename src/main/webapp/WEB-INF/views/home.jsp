@@ -16,7 +16,7 @@
                 <li><a href='services'>Платные услуги</a></li>
                 <li><a href='list-structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>
-                <li class="enter"><a href='login'>Вход</a></li>
+                <li class="enter"><a href='sign'>Вход</a></li>
             </ul>
         </nav>
         <div>
