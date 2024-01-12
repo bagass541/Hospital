@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="container-structure container">
+    <div class="container-view-structure container">
         <nav class="nav-head">
             <ul>
                 <li class="logo-main"><img class="logo-img" src = "../../images/logo.png" >
@@ -17,7 +17,7 @@
                 <li><a href='services'>Платные услуги</a></li>
                 <li><a href='list-structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>
-                 <sec:authorize access="isAnonymous()">    
+                <sec:authorize access="isAnonymous()">    
                 <li class="enter"><a href='sign'>Вход</a></li>	
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
@@ -25,19 +25,31 @@
                 </sec:authorize>
             </ul>
         </nav>
-        <div class="structure">
+
+        <div class="articles">
             <h1>Наша структура</h1>
+            <nav class="view-list">
+                <ul>
+                    <li><a href="#">Филиалы ГЦГКП</a></li>
+                    <li><a href="#">Поликлиники г. Гомеля</a></li>
+                    <li><a href="#">Больницы</a></li>
+                    <li><a href="#">Детские учреждения</a></li>
+                    <li><a href="#">Стоматологии</a></li>
+                    <li><a href="#">Аптеки</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="nav-list">
-            <ul>
-                <li><a href="#">Филиалы ГЦГКП</a></li>
-                <li><a href="#">Поликлиники г. Гомеля</a></li>
-                <li><a href="#">Больницы</a></li>
-                <li><a href="#">Детские учреждения</a></li>
-                <li><a href="#">Стоматологии</a></li>
-                <li><a href="#">Аптеки</a></li>
-            </ul>
-        </nav>
+
+        <div class="content">
+            <h1>Филиалы ГЦГКП</h1>
+            <nav class="content-list">
+                <ul>
+                    <li><a href="#">ГУЗ «Гомельская центральная городская клиническая поликлиника» филиал №6</a></li>
+                    <li><a href="#">ГУЗ «Гомельская центральная городская клиническая поликлиника» филиал №12</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
+    
 </body>
 </html>

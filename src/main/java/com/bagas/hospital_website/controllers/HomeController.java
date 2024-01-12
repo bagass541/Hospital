@@ -18,9 +18,9 @@ public class HomeController {
 		return "services";
 	}
 	
-	@GetMapping("/list-structure")
+	@GetMapping("/structure")
 	public String showListStructure() {
-		return "list-structure";
+		return "structure";
 	}
 	
 	@GetMapping("/about-us") 
