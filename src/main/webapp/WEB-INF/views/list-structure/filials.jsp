@@ -11,7 +11,7 @@
     <div class="container-view-structure container">
         <nav class="nav-head">
             <ul>
-                <li class="logo-main"><img class="logo-img" src = "../../images/logo.png" >
+                <li class="logo-main"><img class="logo-img" src = "../../../images/logo.png" >
                     <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="about-us">О нас</a></li>
                 <li><a href='services'>Платные услуги</a></li>

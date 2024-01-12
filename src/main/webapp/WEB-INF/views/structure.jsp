@@ -30,12 +30,12 @@
         </div>
         <nav class="nav-list">
             <ul>
-                <li><a href="/filials">Филиалы ГЦГКП</a></li>
-                <li><a href="/polyclinic">Поликлиники г. Гомеля</a></li>
-                <li><a href="/hospital">Больницы</a></li>
-                <li><a href="/child-institution">Детские учреждения</a></li>
-                <li><a href="/stomatologies">Стоматологии</a></li>
-                <li><a href="/pharmacies">Аптеки</a></li>
+                <li><a href="structure/filials">Филиалы ГЦГКП</a></li>
+                <li><a href="structure/polyclinic">Поликлиники г. Гомеля</a></li>
+                <li><a href="structure/hospital">Больницы</a></li>
+                <li><a href="structure/child-institution">Детские учреждения</a></li>
+                <li><a href="structure/stomatologies">Стоматологии</a></li>
+                <li><a href="structure/pharmacies">Аптеки</a></li>
             </ul>
         </nav>
     </div>
