@@ -21,7 +21,7 @@
                 <li class="enter"><a href='sign'>Вход</a></li>	
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                <li class="pers-acc"><a href='sign'>Личный кабинет</a></li>
+                <li class="pers-acc"><a href='personal-account'>Личный кабинет</a></li>
                 </sec:authorize>	
             </ul>
         </nav>
