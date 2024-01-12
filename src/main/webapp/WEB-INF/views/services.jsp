@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -14,9 +15,14 @@
                     <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="about-us">О нас</a></li>
                 <li><a href='services'>Платные услуги</a></li>
-                <li><a href='list-structure'>Наша структура</a></li>
+                <li><a href='structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>
-                <li class="enter"><a href='sign'>Вход</a></li>
+                <sec:authorize access="isAnonymous()">    
+                <li class="enter"><a href='sign'>Вход</a></li>	
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                <li class="pers-acc"><a href='personal-account'>Личный кабинет</a></li>
+                </sec:authorize>
             </ul>
         </nav>
         <div class="table-content">
