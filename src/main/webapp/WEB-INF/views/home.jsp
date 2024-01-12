@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -15,8 +16,13 @@
                 <li class="about"><a href="about-us">О нас</a></li>
                 <li><a href='services'>Платные услуги</a></li>
                 <li><a href='list-structure'>Наша структура</a></li>
-                <li><a href='contacts'>Контакты</a></li>
-                <li class="enter"><a href='sign'>Вход</a></li>
+                <li><a href='contacts'>Контакты</a></li>      
+                <sec:authorize access="isAnonymous()">    
+                <li class="enter"><a href='sign'>Вход</a></li>	
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                <li class="pers-acc"><a href='sign'>Личный кабинет</a></li>
+                </sec:authorize>	
             </ul>
         </nav>
         <div>
@@ -25,12 +31,12 @@
         <div class="slogan">
             <h1>Доверьте ваше здоровье<br>профессионалам!</h1>
             <button class="button-sign">Запись к врачу</button>
-            <ul>
+            <ul>         
                 <li>Лучшие врачи</li>
                 <li>Качество</li>
                 <li>Надежность</li>
                 <li>Внимательность</li>
-            </ul>
+            </ul>  
         </div>    
     </div>
 </body>

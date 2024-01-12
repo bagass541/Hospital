@@ -2,8 +2,6 @@ body {
 	margin: 0;
 }
 
-
-
 .container {
 	display: grid;
 	height: 100vh;
@@ -118,6 +116,15 @@ a {
 	border-radius: 2vh;
 	padding: 0.5vh 1vw 0 1vw;
 	max-height: 3vh;
+}
+
+.nav-head .pers-acc {
+	margin-left: 8vw;
+	border: 0.3vh solid black;
+	border-radius: 2vh;
+	padding: 0.5vh 1vw 0 1vw;
+	max-height: 3vh;
+	width: 10vw;
 }
 
 .baby-img {
