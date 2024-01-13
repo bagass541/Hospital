@@ -1,6 +1,7 @@
 package com.bagas.hospital_website.models;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Table(name = "polyclinics")
+@Entity
 @Data
 @NoArgsConstructor
 public class Polyclinic {
