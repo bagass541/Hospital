@@ -31,9 +31,9 @@
         <nav class="nav-list">
             <ul>
                 <li><a href="structure/filials">Филиалы ГЦГКП</a></li>
-                <li><a href="structure/polyclinic">Поликлиники г. Гомеля</a></li>
-                <li><a href="structure/hospital">Больницы</a></li>
-                <li><a href="structure/child-institution">Детские учреждения</a></li>
+                <li><a href="structure/polyclinics">Поликлиники г. Гомеля</a></li>
+                <li><a href="structure/hospitals">Больницы</a></li>
+                <li><a href="structure/child-institutions">Детские учреждения</a></li>
                 <li><a href="structure/stomatologies">Стоматологии</a></li>
                 <li><a href="structure/pharmacies">Аптеки</a></li>
             </ul>
