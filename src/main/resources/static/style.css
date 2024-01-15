@@ -1,10 +1,11 @@
 body {
 	margin: 0;
+	overflow-x: hidden;
 }
 
 .container {
 	display: grid;
-	height: 100vh;
+	height: 100%;
 	width: 100vw;
 	background-color: #EADFDD;
 }
@@ -198,10 +199,7 @@ a {
 
 .nav-list ul {
 	list-style: none;
-	
 }
-
-
 
 .nav-list ul li {
 	background-color: #D9D0CF;
@@ -213,7 +211,7 @@ a {
 }
 
 .container-view-structure {
-	grid-template-rows: 10vh 90vh;
+	grid-template-rows: 10vh auto;
 	grid-template-columns: 25vw 75vw;
 	grid-template-areas: 
 	"header header"
@@ -222,7 +220,8 @@ a {
 
 .articles {
 	grid-area: articles;
-	align-self: center;
+	margin-top: 25vh;
+	align-self: self-start;
 	background-color: #F9EBE9;
 }
 
@@ -241,31 +240,47 @@ a {
 	text-align: center;
 }
 
+.view-list ul li {
+    padding-bottom: 1vh;
+}
+
+.view-list ul .chosenElement {
+	background-color: #F4DEDE;
+	border: 2px solid black;
+}
+
 .content {
 	align-self: center;
-	margin-left: 1vw;
-	margin-right: 3vw;
-	margin-bottom: 32vh;
+	margin-left: 3vw; 
+	margin-right: 3vw; 
 	font-size: 3vh;
 }
 
-.content h1 {
-	font-size: 4vh;
-	margin-left: 2vw;
+.h1-structure-header {
+	font-size: 2.5vh;
+	margin-left: 5vw;
+	margin-top: 19vh;
+}
+
+.list-structure-elements {
+	grid-area: list;
 }
 
 .content-list ul {
 	list-style: none;
+	min-height: 70vh;
 }
 
 .content-list ul li {
 	background-color: #D9D0CF;
 	margin-bottom: 1.4vh;
-	background-image: url(../Картинки/sign-2.png);
+	background-image: url(images/sign-2.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	padding: 0.5vh 0 0.5vh 2vw;
 }
+
+
 
 .container-services {
 	grid-template-rows: 10vh 90vh;
