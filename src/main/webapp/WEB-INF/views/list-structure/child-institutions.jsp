@@ -31,10 +31,10 @@
             <h1>Наша структура</h1>
             <nav class="view-list">
                 <ul>
-                    <li class="chosenElement"><a href="filials">Филиалы ГЦГКП</a></li>
+                    <li><a href="filials">Филиалы ГЦГКП</a></li>
                     <li><a href="polyclinics">Поликлиники г. Гомеля</a></li>
                     <li><a href="hospitals">Больницы</a></li>
-                    <li><a href="child-institutions">Детские учреждения</a></li>
+                    <li class="chosenElement"><a href="child-institutions">Детские учреждения</a></li>
                     <li><a href="stomatologies">Стоматологии</a></li>
                     <li><a href="pharmacies">Аптеки</a></li>
                 </ul>
@@ -42,14 +42,14 @@
         </div>
         <div class="list-structure-elements">      
         <div class="h1-structure-header">
-        <h1>Филиалы ГЦГКП</h1>
+         <h1>Детские учреждения</h1>
         </div>
         <div class="content">          
             <nav class="content-list">
                 <ul>
-                <c:forEach var="filial" items="${filialList}">
-                	<li><a>${filial.name}</a></li>
-                </c:forEach>                      
+                <c:forEach var="childInstitution" items="${childInstitutionList}">
+                	<li><a>${childInstitution.name}</a></li>
+                </c:forEach>                         
                 </ul>
             </nav>
         </div>
