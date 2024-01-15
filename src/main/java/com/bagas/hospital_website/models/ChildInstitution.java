@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "child-institutions")
+@Table(name = "child_institutions")
 @Entity
 @Data
 @NoArgsConstructor
