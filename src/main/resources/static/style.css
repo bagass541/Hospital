@@ -241,7 +241,8 @@ a {
 }
 
 .view-list ul li {
-    padding-bottom: 1vh;
+    padding-bottom: 0.7vh;
+    padding-top: 0.7vh;
 }
 
 .view-list ul .chosenElement {
