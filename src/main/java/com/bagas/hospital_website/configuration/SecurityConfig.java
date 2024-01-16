@@ -2,27 +2,24 @@ package com.bagas.hospital_website.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    InMemoryUserDetailsManager userDetailsService() {
-		UserDetails user1 = User.withUsername("root")
-				.password(passwordEncoder().encode("root"))
-				.build();
-		return new InMemoryUserDetailsManager(user1);
-	}
 
+	@Bean
+	AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception {
+		return configuration.getAuthenticationManager();
+	}
+	
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -30,7 +27,7 @@ public class SecurityConfig {
     		.formLogin(form -> form
     				.loginPage("/sign")
     				.loginProcessingUrl("/login")
-    				.defaultSuccessUrl("/")
+    				.defaultSuccessUrl("/"	)
     				.permitAll())
     		.authorizeHttpRequests(auth -> auth
      				.requestMatchers("/**")
