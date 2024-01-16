@@ -1,6 +1,5 @@
 package com.bagas.hospital_website.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,13 +11,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "hospitals")
 @Entity
 @Data
-@NoArgsConstructor
 public class Hospital {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_hospital;
+	private long id;
 	
-	@Column(name = "name", unique = true)
 	private String name;
 }
