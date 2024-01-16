@@ -1,4 +1,4 @@
-package com.bagas.hospital_website.models;
+package com.bagas.hospital_website.models.structure;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
