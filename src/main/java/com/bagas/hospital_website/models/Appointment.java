@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -18,8 +19,10 @@ public class Appointment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@ManyToOne
 	private Doctor doctor;
 	
+	@ManyToOne
 	private User user;
 	
 	private LocalDateTime time;
