@@ -18,4 +18,13 @@ public enum DoctorType {
 	
 	private final String translate;
 
+	public static DoctorType getByTranslate(String translate) {
+		
+		for(DoctorType type : values()) {
+			if(type.getTranslate().equals(translate)) {
+				return type;
+			}
+		}
+		return null;
+	}
 }
