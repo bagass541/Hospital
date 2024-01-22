@@ -11,6 +11,6 @@ import java.util.List;
 	
 public interface DoctorRepository extends JpaRepository<Doctor, Long>{
 	
-	List<Doctor> findByDoctorType(@Param("type") DoctorType doctorType);
+	List<Doctor> findByDoctorType(DoctorType doctorType);
 
 }

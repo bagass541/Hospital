@@ -37,5 +37,5 @@ public class HomeController {
 	public String showPersonalAccount() {
 		return "personal-account";
 	}
-
+	
 }
