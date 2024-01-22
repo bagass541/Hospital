@@ -344,6 +344,12 @@ td.no-border-right {
 	font-size: 4vh;
 }
 
+.form-appointment .button-check-in {
+	font-size: 4vh;
+	margin-top: 2vh;
+	background-color: #F4DEDE;
+}
+
 .form-appointment select {
 	font-size: 2.5vh;
 	width: 13.5vw;
