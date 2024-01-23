@@ -13,14 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bagas.hospital_website.models.Appointment;
 import com.bagas.hospital_website.models.Doctor;
 import com.bagas.hospital_website.models.DoctorType;
-import com.bagas.hospital_website.repositories.DoctorRepository;
 import com.bagas.hospital_website.services.AppointmentService;
 import com.bagas.hospital_website.services.DoctorService;
-import com.bagas.hospital_website.util.TimeIntervalGenerator;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 @Controller
 @RequestMapping(value = "/appointment")
