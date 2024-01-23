@@ -1,4 +1,4 @@
-package com.bagas.hospital_website.models;
+package com.bagas.hospital_website.models.structure;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,15 +9,15 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "pharmacies")
+@Table(name = "polyclinics")
 @Entity
 @Data
 @NoArgsConstructor
-public class Pharmacy {
+public class Polyclinic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_pharmacy;
+	private long id_polyclinic;
 	
 	@Column(name = "name", unique = true)
 	private String name;

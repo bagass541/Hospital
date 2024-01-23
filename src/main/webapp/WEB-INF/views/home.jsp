@@ -30,7 +30,7 @@
         </div>
         <div class="slogan">
             <h1>Доверьте ваше здоровье<br>профессионалам!</h1>
-            <button class="button-sign">Запись к врачу</button>
+            <input type="button" onclick="window.location.href = '/appointment'" class="button-sign" value="Запись к врачу"></input>
             <ul>         
                 <li>Лучшие врачи</li>
                 <li>Качество</li>

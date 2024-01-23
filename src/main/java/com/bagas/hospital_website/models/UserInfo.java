@@ -1,6 +1,5 @@
 package com.bagas.hospital_website.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,16 +8,17 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "filials")
+@Table(name = "users_info")
 @Entity
 @Data
 @NoArgsConstructor
-public class Filial {
+public class UserInfo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_filial;
+	private long id;
 	
-	@Column(name = "name", unique = true)
-	private String name;
+	private String fio;
+
+	private String number;
 }

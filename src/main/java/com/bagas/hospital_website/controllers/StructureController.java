@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bagas.hospital_website.models.ChildInstitution;
-import com.bagas.hospital_website.models.Filial;
-import com.bagas.hospital_website.models.Hospital;
-import com.bagas.hospital_website.models.Pharmacy;
-import com.bagas.hospital_website.models.Polyclinic;
-import com.bagas.hospital_website.models.Stomatology;
+import com.bagas.hospital_website.models.structure.ChildInstitution;
+import com.bagas.hospital_website.models.structure.Filial;
+import com.bagas.hospital_website.models.structure.Hospital;
+import com.bagas.hospital_website.models.structure.Pharmacy;
+import com.bagas.hospital_website.models.structure.Polyclinic;
+import com.bagas.hospital_website.models.structure.Stomatology;
 import com.bagas.hospital_website.services.ChildInstitutionService;
 import com.bagas.hospital_website.services.FilialService;
 import com.bagas.hospital_website.services.HospitalService;

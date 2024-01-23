@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bagas.hospital_website.models.Stomatology;
+import com.bagas.hospital_website.models.structure.Stomatology;
 import com.bagas.hospital_website.repositories.StomatologyRepository;
 
 @Service

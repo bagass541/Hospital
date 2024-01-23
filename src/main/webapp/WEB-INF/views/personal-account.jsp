@@ -54,3 +54,5 @@
             <div class="label-reservations">Записи</div>
         </div>
     </div>
+</body>
+</html>
