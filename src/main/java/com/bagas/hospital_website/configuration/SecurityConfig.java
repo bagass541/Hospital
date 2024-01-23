@@ -30,6 +30,8 @@ public class SecurityConfig {
     				.defaultSuccessUrl("/"	)
     				.permitAll())
     		.authorizeHttpRequests(auth -> auth
+    				.requestMatchers("/appointment")
+    				.authenticated()
      				.requestMatchers("/**")
     				.permitAll()
     				.anyRequest()
