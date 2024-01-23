@@ -1,7 +1,5 @@
 package com.bagas.hospital_website.models;
 
-import org.springframework.security.core.GrantedAuthority;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,16 +8,17 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "roles")
+@Table(name = "users_info")
 @Entity
 @Data
 @NoArgsConstructor
-public class Role implements GrantedAuthority{
-
+public class UserInfo {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String authority;
+	private String fio;
 
+	private String number;
 }
