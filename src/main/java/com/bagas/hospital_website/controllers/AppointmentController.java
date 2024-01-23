@@ -20,6 +20,7 @@ import com.bagas.hospital_website.repositories.DoctorRepository;
 import com.bagas.hospital_website.services.AppointmentService;
 import com.bagas.hospital_website.services.DoctorService;
 import com.bagas.hospital_website.util.TimeIntervalGenerator;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 @Controller
 @RequestMapping(value = "/appointment")
@@ -63,4 +64,12 @@ public class AppointmentController {
 	return times;
 	}
 	
+	@PostMapping
+	public String addAppointment(@RequestParam("doctorSelect") long doctorId,
+									   @RequestParam("dateSelect") String date,
+									   @RequestParam("timeSelect") String time) {
+		appointmentService.makeAppointment(doctorId, LocalDate.parse(date), LocalTime.parse(time));
+		
+		return "redirect:/";
+	}
 }

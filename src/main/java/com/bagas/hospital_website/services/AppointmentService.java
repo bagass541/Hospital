@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
@@ -14,10 +15,14 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.bagas.hospital_website.models.Appointment;
 import com.bagas.hospital_website.models.Doctor;
+import com.bagas.hospital_website.models.User;
 import com.bagas.hospital_website.repositories.AppointmentRepository;
 import com.bagas.hospital_website.util.TimeIntervalGenerator;
 
@@ -96,6 +101,11 @@ public class AppointmentService {
 	}
 	
 	public void makeAppointment(long doctorId, LocalDate date, LocalTime time) {
+		LocalDateTime timestamp = date.atTime(time);
 		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = (User) authentication.getPrincipal();
+		
+		appointmentRepo.setUserToAppointmentByDoctorTimestamp(doctorId, timestamp, user.getId());
 	}
 }

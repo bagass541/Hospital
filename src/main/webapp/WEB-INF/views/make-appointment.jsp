@@ -39,15 +39,15 @@
             </select>
             
             <label><br>Выберите врача:</label>
-            <select id="doctorSelect">           
+            <select id="doctorSelect" name="doctorSelect">           
             </select>
             
             <label><br>Выберите дату приема:</label>
-            <select id="dateSelect">   
+            <select id="dateSelect" name="dateSelect">   
             </select>
             
             <label><br>Выберите время приема:</label>
-            <select id="timeSelect">
+            <select id="timeSelect" name="timeSelect">
             </select>
             <button type="submit" class="button-check-in">Записаться</button>
         </form>
