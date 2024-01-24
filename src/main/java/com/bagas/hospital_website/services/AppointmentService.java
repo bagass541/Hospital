@@ -109,8 +109,7 @@ public class AppointmentService {
 	public List<Appointment> getAllAppointmentsByUser() {
 		User user = userService.getCurrentUser();
 		List<Appointment> appointments =  appointmentRepo.findByUserOrderByTime(user);
-//		appointments.stream()
-//			.map()
+		
 		return appointments;
 	}
 }

@@ -30,9 +30,6 @@
         <div class="account-content"> 
             <h1>Личный кабинет</h1>
             <div class="information"> 
-               <!--  <p>ФИО: Богословский А. Н.</p>
-                <p>Телефон: +375255552233</p>
-                 -->
                  <p>ФИО: ${fio}</p>
                  <p>Телефон: ${number}</p>
             </div>
@@ -42,14 +39,6 @@
                     <th>Врач</th>
                     <th>Дата</th>
                 </tr>
-               <!-- <tr>
-                    <td>Смирнов А. Н.</td>
-                    <td>14.01.24</td>
-                </tr>
-                <tr>
-                    <td>Королев А. Н.</td>
-                    <td>14.02.24</td>
-                </tr>  -->
                 <c:forEach var="appointment" items="${appointments}" >
                 	<tr>
                 		<td>${appointment.doctor.fio}</td>
