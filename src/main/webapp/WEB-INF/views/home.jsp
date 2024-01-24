@@ -14,7 +14,7 @@
                 <li class="logo-main"><img class="logo-img" src = "images/logo.png">
                     <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="about-us">О нас</a></li>
-                <li><a href='services'>Платные услуги</a></li>
+                <li><a href='procedures'>Платные услуги</a></li>
                 <li><a href='structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>      
                 <sec:authorize access="isAnonymous()">    
