@@ -99,7 +99,7 @@ public class AppointmentService {
 				.collect(Collectors.toList());
 	}
 	
-	public void makeAppointment(long doctorId, LocalDate date, LocalTime time) {
+	public synchronized void makeAppointment(long doctorId, LocalDate date, LocalTime time) {
 		LocalDateTime timestamp = date.atTime(time);	
 		User user = userService.getCurrentUser();
 		appointmentRepo.setUserToAppointmentByDoctorTimestamp(doctorId, timestamp, user.getId());

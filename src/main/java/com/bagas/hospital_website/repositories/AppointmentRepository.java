@@ -37,7 +37,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE appointments set user_id = :userId where doctor_id = :doctorId and time = :timestamp", nativeQuery = true)
+	@Query(value = "UPDATE appointments set user_id = :userId where doctor_id = :doctorId and user_id IS NULL and time = :timestamp", nativeQuery = true)
 	void setUserToAppointmentByDoctorTimestamp(@Param("doctorId") long doctorId, 
 											   @Param("timestamp") LocalDateTime timestamp,
 											   @Param("userId") long userId);
