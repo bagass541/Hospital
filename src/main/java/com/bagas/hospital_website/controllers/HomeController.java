@@ -33,9 +33,4 @@ public class HomeController {
 		return "contacts";
 	}
 	
-	@GetMapping("/personal-account")
-	public String showPersonalAccount() {
-		return "personal-account";
-	}
-	
 }
