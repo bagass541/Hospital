@@ -14,8 +14,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.bagas.hospital_website.models.Appointment;
@@ -34,6 +32,9 @@ public class AppointmentService {
 	
 	@Autowired
 	private DoctorService doctorService;
+	
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private TimeIntervalGenerator timeIntervalGenerator;
@@ -99,11 +100,17 @@ public class AppointmentService {
 	}
 	
 	public void makeAppointment(long doctorId, LocalDate date, LocalTime time) {
-		LocalDateTime timestamp = date.atTime(time);
-		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = (User) authentication.getPrincipal();
-		
+		LocalDateTime timestamp = date.atTime(time);	
+		User user = userService.getCurrentUser();
 		appointmentRepo.setUserToAppointmentByDoctorTimestamp(doctorId, timestamp, user.getId());
+	}
+	
+	
+	public List<Appointment> getAllAppointmentsByUser() {
+		User user = userService.getCurrentUser();
+		List<Appointment> appointments =  appointmentRepo.findByUserOrderByTime(user);
+//		appointments.stream()
+//			.map()
+		return appointments;
 	}
 }

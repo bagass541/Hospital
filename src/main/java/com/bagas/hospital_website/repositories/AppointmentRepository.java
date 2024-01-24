@@ -16,6 +16,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import com.bagas.hospital_website.models.User;
+
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 
@@ -39,4 +41,6 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 	void setUserToAppointmentByDoctorTimestamp(@Param("doctorId") long doctorId, 
 											   @Param("timestamp") LocalDateTime timestamp,
 											   @Param("userId") long userId);
+	
+	List<Appointment> findByUserOrderByTime(User user);
 }
