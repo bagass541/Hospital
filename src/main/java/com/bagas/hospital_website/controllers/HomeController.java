@@ -13,11 +13,6 @@ public class HomeController {
 		return "home";
 	}
 	
-	@GetMapping("/services")
-	public String showServices() {
-		return "services";
-	}
-	
 	@GetMapping("/structure")
 	public String showListStructure() {
 		return "structure";
