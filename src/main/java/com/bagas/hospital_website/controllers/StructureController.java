@@ -46,10 +46,12 @@ public class StructureController {
 	@GetMapping("/filials")
 	public ModelAndView showFilials() {
 		List<Filial> filials = filialService.getAllFilials();
+		String heading = "Филиалы ГЦГКП";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/filials");
-		modelAndView.addObject("filialList", filials);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", filials);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
@@ -57,10 +59,12 @@ public class StructureController {
 	@GetMapping("/polyclinics")
 	public ModelAndView showPolyclinics() {
 		List<Polyclinic> polyclinics = polyclinicService.getAllPolyclinics();
+		String heading = "Поликлиники";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/polyclinics");
-		modelAndView.addObject("polyclinicList", polyclinics);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", polyclinics);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
@@ -68,10 +72,12 @@ public class StructureController {
 	@GetMapping("/hospitals")
 	public ModelAndView showHospitals() {
 		List<Hospital> hospitals = hospitalService.getAllHospitals();
+		String heading = "Больницы";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/hospitals");
-		modelAndView.addObject("hospitalList", hospitals);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", hospitals);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
@@ -79,10 +85,12 @@ public class StructureController {
 	@GetMapping("/child-institutions")
 	public ModelAndView showChildInstitutions() {
 		List<ChildInstitution> childInstitutions = childInstitutionService.getAllChildInstitutions();
+		String heading = "Детские учреждения";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/child-institutions");
-		modelAndView.addObject("childInstitutionList", childInstitutions);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", childInstitutions);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
@@ -90,10 +98,12 @@ public class StructureController {
 	@GetMapping("/stomatologies")
 	public ModelAndView showStomatologies() {
 		List<Stomatology> stomatologies = stomatologyService.getAllStomatologies();
+		String heading = "Стоматологии";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/stomatologies");
-		modelAndView.addObject("stomatologyList", stomatologies);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", stomatologies);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
@@ -101,10 +111,12 @@ public class StructureController {
 	@GetMapping("/pharmacies")
 	public ModelAndView showPharmacies() {
 		List<Pharmacy> pharmacies = pharmacyService.getAllPharmacies();
+		String heading = "Аптеки г. Гомеля";
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("list-structure/pharmacies");
-		modelAndView.addObject("pharmacyList", pharmacies);
+		modelAndView.setViewName("structure-element");
+		modelAndView.addObject("structureElements", pharmacies);
+		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
 	}
