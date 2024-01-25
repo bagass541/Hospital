@@ -246,7 +246,7 @@ a {
     padding-top: 0.7vh;
 }
 
-.view-list ul .chosenElement {
+.view-list ul .article-selected {
 	background-color: #F4DEDE;
 	border: 2px solid black;
 }
