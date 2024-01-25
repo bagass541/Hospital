@@ -14,7 +14,7 @@
                 <li class="logo-main"><img class="logo-img" src = "images/logo.png">
                     <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="about-us">О нас</a></li>
-                <li><a href='services'>Платные услуги</a></li>
+                <li><a href='procedures'>Платные услуги</a></li>
                 <li><a href='structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>      
                 <sec:authorize access="isAnonymous()">    
@@ -30,7 +30,7 @@
         </div>
         <div class="slogan">
             <h1>Доверьте ваше здоровье<br>профессионалам!</h1>
-            <button class="button-sign">Запись к врачу</button>
+            <input type="button" onclick="window.location.href = '/appointment'" class="button-sign" value="Запись к врачу"></input>
             <ul>         
                 <li>Лучшие врачи</li>
                 <li>Качество</li>

@@ -155,6 +155,7 @@ a {
 	border: 3px solid black;
 	padding: 1vh 0.5vw 1vh 0.5vw;
 	margin: 0 0 5vh 12vw;
+	cursor: pointer;
 }
 
 .slogan ul {
@@ -307,11 +308,26 @@ a {
 .table-services td,
 th
 {
-	width: 25vw;
 	text-align: center;
 	font-size: 4vh;
 	border: 2px solid black;
 	
+}
+
+.normal-column {
+	width: 25vw;
+}
+
+.smal-column {
+	width: 5vw;
+}
+
+.input-procedure {
+	font-size: 1.5vw;
+}
+
+.button-procedure {
+	font-size: 3.5vh;
 }
 
 .table-content h1 {
@@ -343,12 +359,24 @@ td.no-border-right {
 	font-size: 4vh;
 }
 
-.form-appointment select {
-	font-size: 2.5vh;
+.form-appointment .button-check-in {
+	font-size: 4vh;
+	margin-top: 2vh;
+	background-color: #F4DEDE;
 }
 
+.form-appointment select {
+	font-size: 2.5vh;
+	width: 13.5vw;
+	text-align: center;
+	display: flex;
+	margin-top: 1.5vh;
+}
+
+
+
 .form-appointment h1 {
-	margin-bottom: 10vh;
+	margin-bottom: 8vh;
 }
 
 .container-account {

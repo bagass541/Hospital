@@ -6,16 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Table(name = "stomatologies")
+@Table(name = "procedures")
 @Entity
 @Data
-public class Stomatology {
-
+public class Procedure {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idy;
+	private long id;
 	
 	private String name;
+	
+	private int minutes;
+	
+	private int price;
+
 }

@@ -8,14 +8,17 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "filials")
+@Table(name = "users_info")
 @Entity
 @Data
-public class Filial {
+@NoArgsConstructor
+public class UserInfo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String name;
+	private String fio;
+
+	private String number;
 }

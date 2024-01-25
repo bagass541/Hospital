@@ -1,12 +1,10 @@
 package com.bagas.hospital_website.services;
 
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,25 +21,28 @@ public class UserService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> userOptional = userRepo.findByName(username);
+		Optional<User> userOptional = userRepo.findByUsername(username);
 		if(userOptional.isEmpty()) {
 			throw new UsernameNotFoundException("User not exists by Username");
 		}
 		
 		User user = userOptional.get();
 		
-		Set<GrantedAuthority> authorities = user.getRoles().stream()
-				.map((role) -> new SimpleGrantedAuthority(role.getName()))
-				.collect(Collectors.toSet());
-		
-		return org.springframework.security.core.userdetails.User
-				.withUsername(username)
-				.password(user.getPassword())
-				.authorities(authorities)
-				.accountExpired(false)
-				.accountLocked(false)
-				.credentialsExpired(false)
-				.disabled(false)
-				.build();
+		return user;
+	}
+	
+	public String getFio() {
+		User user = getCurrentUser();		
+		return user.getUserInfo().getFio();
+	}
+	
+	public String getNumber() {
+		User user = getCurrentUser();
+		return user.getUserInfo().getNumber();
+	}
+	
+	public User getCurrentUser() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		return (User) authentication.getPrincipal();
 	}
 }
