@@ -58,9 +58,9 @@
                    		</c:forEach>                   	
                    		<sec:authorize access="hasRole('ROLE_ADMIN')">                	
                    			<tr>
-                   				<td><input type="text" name="name" placeholder="Введите название услуги" class="input-procedure"></td>
-                   				<td><input type="text" name="minutes" placeholder="Введите минуты" class="input-procedure"></td>
-                   				<td><input type="text" name="price" placeholder="Введите цену" class="input-procedure"></td>
+                   				<td><input type="text" name="name" placeholder="Введите название услуги" class="input-procedure" required="required"></td>
+                   				<td><input type="number" name="minutes" placeholder="Введите минуты" class="input-procedure" required="required"></td>
+                   				<td><input type="number" name="price" placeholder="Введите цену" class="input-procedure" required="required"></td>
                    				<td>                  				
                    					<button class="button-procedure" type="submit">+</button>               				              			
                    				</td>
