@@ -17,4 +17,8 @@ public class HospitalService {
 	public List<Hospital> getAllHospitals() {
 		return hospitalRepo.findAll();
 	}
+	
+	public void deleteHospitalById(long id) {
+		hospitalRepo.deleteById(id);
+	}
 }

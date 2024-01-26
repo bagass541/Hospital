@@ -17,4 +17,8 @@ public class ChildInstitutionService {
 	public List<ChildInstitution> getAllChildInstitutions() {
 		return childInstitutionRepo.findAll();
 	}
+	
+	public void deleteChildInstitutionById(long id) {
+		childInstitutionRepo.deleteById(id);
+	}
 }

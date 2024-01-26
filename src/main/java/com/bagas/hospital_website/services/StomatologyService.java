@@ -17,4 +17,8 @@ public class StomatologyService {
 	public List<Stomatology> getAllStomatologies() {
 		return stomatologyRepo.findAll();
 	}
+	
+	public void deleteStomatologyById(long id) {
+		stomatologyRepo.deleteById(id);
+	}
 }

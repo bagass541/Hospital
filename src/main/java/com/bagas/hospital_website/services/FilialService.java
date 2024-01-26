@@ -17,4 +17,8 @@ public class FilialService {
 	public List<Filial> getAllFilials() {
 		return filialRepo.findAll();
 	}
+	
+	public void deleteFilialById(long id) {
+		filialRepo.deleteById(id);
+	}
 }

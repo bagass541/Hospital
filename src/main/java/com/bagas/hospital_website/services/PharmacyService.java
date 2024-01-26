@@ -17,4 +17,8 @@ public class PharmacyService {
 	public List<Pharmacy> getAllPharmacies() {
 		return pharmacyRepo.findAll();
 	}
+	
+	public void deletePharmacyById(long id) {
+		pharmacyRepo.deleteById(id);
+	}
 }
