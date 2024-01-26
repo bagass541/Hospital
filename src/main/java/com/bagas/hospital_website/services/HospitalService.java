@@ -21,4 +21,11 @@ public class HospitalService {
 	public void deleteHospitalById(long id) {
 		hospitalRepo.deleteById(id);
 	}
+	
+	public void addHospital(String name) {
+		Hospital hospital = new Hospital();
+		hospital.setName(name);
+		
+		hospitalRepo.save(hospital);
+	}
 }

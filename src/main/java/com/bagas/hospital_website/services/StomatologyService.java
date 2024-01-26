@@ -21,4 +21,11 @@ public class StomatologyService {
 	public void deleteStomatologyById(long id) {
 		stomatologyRepo.deleteById(id);
 	}
+	
+	public void addStomatology(String name) {
+		Stomatology stomatology = new Stomatology();		
+		stomatology.setName(name);
+		
+		stomatologyRepo.save(stomatology);
+	}
 }

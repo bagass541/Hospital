@@ -21,4 +21,11 @@ public class FilialService {
 	public void deleteFilialById(long id) {
 		filialRepo.deleteById(id);
 	}
+	
+	public void addFilial(String name) {
+		Filial filial = new Filial();
+		filial.setName(name);
+		
+		filialRepo.save(filial);
+	}
 }

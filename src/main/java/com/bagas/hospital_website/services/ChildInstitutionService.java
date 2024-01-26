@@ -21,4 +21,11 @@ public class ChildInstitutionService {
 	public void deleteChildInstitutionById(long id) {
 		childInstitutionRepo.deleteById(id);
 	}
+	
+	public void addChildInstitution(String name) {
+		ChildInstitution childInstitution = new ChildInstitution();
+		childInstitution.setName(name);
+		
+		childInstitutionRepo.save(childInstitution);
+	}
 }

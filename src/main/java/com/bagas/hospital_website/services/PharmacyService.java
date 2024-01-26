@@ -21,4 +21,11 @@ public class PharmacyService {
 	public void deletePharmacyById(long id) {
 		pharmacyRepo.deleteById(id);
 	}
+	
+	public void addPharmacy(String name) {
+		Pharmacy pharmacy = new Pharmacy();
+		pharmacy.setName(name);
+		
+		pharmacyRepo.save(pharmacy);
+	}
 }
