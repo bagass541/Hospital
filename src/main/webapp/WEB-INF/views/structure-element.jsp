@@ -6,7 +6,7 @@
 <head>
     <title>Наша структура</title>
     <link rel="stylesheet" href="../../style.css">
-    
+    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -45,14 +45,20 @@
         <div class="h1-structure-header" >
         <h1  id="heading">${h1Name}</h1>
         </div>
-        <div class="content">          
-            <nav class="content-list">
-                <ul>
-                <c:forEach var="element" items="${structureElements}">
-                	<li><a>${element.name}</a></li>
-                </c:forEach>                      
-                </ul>
-            </nav>
+        <div class="content">
+        	<form method="post" action="procedures/deleteProcedure">          
+            	<nav class="content-list">
+                	<ul>
+                		<c:forEach var="element" items="${structureElements}">               
+                			<li><a>${element.name}</a>
+                				<sec:authorize access="hasRole('ROLE_ADMIN')">
+                					<button class="button-procedure" value="${element.id}" name="structureElementId"><i class="fa fa-trash"></i></button>
+                				</sec:authorize>  
+                			</li>
+                		</c:forEach>                      
+                	</ul>
+           		</nav>
+            </form>  
         </div>
         </div>		        
     </div>    

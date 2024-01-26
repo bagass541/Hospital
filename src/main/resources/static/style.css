@@ -274,14 +274,16 @@ a {
 }
 
 .content-list ul li {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
 	background-color: #D9D0CF;
 	margin-bottom: 1.4vh;
 	background-image: url(images/sign-2.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	padding: 0.5vh 0 0.5vh 2vw;
+	padding: 0.5vh 0 0.5vh 2vw;		
 }
-
 
 
 .container-services {
