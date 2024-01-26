@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bagas.hospital_website.models.structure.ChildInstitution;
@@ -14,6 +18,7 @@ import com.bagas.hospital_website.models.structure.Hospital;
 import com.bagas.hospital_website.models.structure.Pharmacy;
 import com.bagas.hospital_website.models.structure.Polyclinic;
 import com.bagas.hospital_website.models.structure.Stomatology;
+import com.bagas.hospital_website.models.structure.StructureElement;
 import com.bagas.hospital_website.services.ChildInstitutionService;
 import com.bagas.hospital_website.services.FilialService;
 import com.bagas.hospital_website.services.HospitalService;
@@ -119,6 +124,20 @@ public class StructureController {
 		modelAndView.addObject("h1Name", heading);
 		
 		return modelAndView;
+	}
+	
+	@PostMapping("/{elementType}/deleteElement")
+	public String deleteElement(@RequestParam("structureElementId") long id, @PathVariable("elementType") String elementType) {
+		switch (elementType) {
+			case "filials" -> filialService.deleteFilialById(id);
+			case "polyclinics" -> polyclinicService.deletePolyclinicById(id);
+			case "hospitals" -> hospitalService.deleteHospitalById(id);
+			case "child-institutions" -> childInstitutionService.deleteChildInstitutionById(id);
+			case "stomatologies" -> stomatologyService.deleteStomatologyById(id);
+			case "pharmacies" -> pharmacyService.deletePharmacyById(id);
+		}
+		
+		return "redirect:/structure/" + elementType;
 	}
 	
 }
