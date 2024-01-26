@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container-services container">
+    <div class="container-procedures container">
         <nav class="nav-head">
             <ul>
                 <li class="logo-main"><img class="logo-img" src = "../../images/logo.png" >
@@ -31,8 +31,8 @@
         </nav>
         <div class="table-content">
             <h1>Платные услуги</h1>
-            <form method="post" action="procedures/addProcedure">
-            	<table class="table-services">
+            
+            	<table class="table-procedures">
                 	<thead>
                     	<tr>
                         	<th class="no-border-left">Название</th>
@@ -55,20 +55,18 @@
                    					</td>                   			                    	
                    				</sec:authorize>
                    			</tr>
-                   		</c:forEach>                   	
-                   		<sec:authorize access="hasRole('ROLE_ADMIN')">                	
-                   			<tr>
-                   				<td><input type="text" name="name" placeholder="Введите название услуги" class="input-procedure" required="required"></td>
-                   				<td><input type="number" name="minutes" placeholder="Введите минуты" class="input-procedure" required="required"></td>
-                   				<td><input type="number" name="price" placeholder="Введите цену" class="input-procedure" required="required"></td>
-                   				<td>                  				
-                   					<button class="button-procedure" type="submit">+</button>               				              			
-                   				</td>
-                   			</tr>                     	
-                   		</sec:authorize>            	                 
+                   		</c:forEach>                   	                   		            	                 
                 	</tbody>
             	</table>
-            </form>   
+            	   
+            	<form class="form-add-procedure" method="post" action="procedures/addProcedure">
+            		<sec:authorize access="hasRole('ROLE_ADMIN')">                	         
+                		<input type="text" name="name" placeholder="Введите название услуги" class="input-procedure" required="required">
+                		<input type="number" name="minutes" placeholder="Введите минуты" class="input-procedure" required="required">
+                		<input type="number" name="price" placeholder="Введите цену" class="input-procedure" required="required">                   			                				
+                		<button class="button-procedure" type="submit">+</button>               				              			                   			                     	
+                	</sec:authorize>
+          		</form>  
         </div>
     </div>
 </body>    
