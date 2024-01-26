@@ -35,7 +35,7 @@
                     <li id="filials"><a href="filials">Филиалы ГЦГКП</a></li>
                     <li id="polyclinics"><a href="polyclinics">Поликлиники г. Гомеля</a></li>
                     <li id="hospitals"><a href="hospitals">Больницы</a></li>
-                    <li id="childInstitutions"><a href="child-institutions">Детские учреждения</a></li>
+                    <li id="child-institutions"><a href="child-institutions">Детские учреждения</a></li>
                     <li id="stomatologies"><a href="stomatologies">Стоматологии</a></li>
                     <li id="pharmacies"><a href="pharmacies">Аптеки</a></li>
                 </ul>
@@ -46,7 +46,7 @@
         <h1  id="heading">${h1Name}</h1>
         </div>
         <div class="content">
-        	<form method="post" action="procedures/deleteProcedure">          
+        	<form method="post" id="deleteForm">          
             	<nav class="content-list">
                 	<ul>
                 		<c:forEach var="element" items="${structureElements}">               
@@ -64,42 +64,39 @@
     </div>    
 </body>
 <script>
-	// Получаем элементы заголовка и кнопки
-	var heading = document.getElementById('heading');
 	var ulList = document.getElementById('listArticles');
+	var deleteForm = document.getElementById('deleteForm');
 	
-	var listItems = ulList.getElementsByTagName('li')	
-	for(var i = 0; i < listItems.length; i++) {
-		listItems[i].classList.remove("article-selected");
-	}
-	
-	console.log(heading.textContent)
+	var currentUrl = window.location.href;
+	var urlParts = currentUrl.split('/');
+	var elementType = urlParts[urlParts.length - 1];
+
+	var article = document.getElementById(elementType);
 	// Проверяем содержимое заголовка и применяем соответствующий стиль к кнопке
-	switch(heading.textContent) {
-		case 'Филиалы ГЦГКП':
-			console.log("switch filials");
-			var filialArticle = document.getElementById('filials');
-			filialArticle.classList.add("article-selected");
+	switch(elementType) {
+		case 'filials':			
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/filials/deleteElement";
 			break;
-		case 'Поликлиники':
-			var polyclynicArticle = document.getElementById('polyclinics');
-			polyclynicArticle.classList.add("article-selected");
+		case 'polyclinics':
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/polyclinics/deleteElement";
 			break;
-		case 'Больницы':
-			var hospitalArticle = document.getElementById('hospitals');
-			hospitalArticle.classList.add("article-selected");
+		case 'hospitals':
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/hospitals/deleteElement";
 			break;
-		case 'Детские учреждения':
-			var childInstitution = document.getElementById('childInstitutions');
-			childInstitution.classList.add("article-selected");
+		case 'child-institutions':
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/child-institutions/deleteElement";
 			break;
-		case 'Стоматологии':
-			var stomatology = document.getElementById('stomatologies');
-			stomatology.classList.add("article-selected");
+		case 'stomatologies':
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/stomatologies/deleteElement";
 			break;
-		case 'Аптеки г. Гомеля':
-			var pharmacy = document.getElementById('pharmacies');
-			pharmacy.classList.add("article-selected");
+		case 'pharmacies':
+			article.classList.add("article-selected");
+			deleteForm.action = "/structure/pharmacies/deleteElement";
 			break;
 	};
 </script>
