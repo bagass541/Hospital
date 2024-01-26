@@ -140,7 +140,6 @@ public class StructureController {
 	
 	@PostMapping("/{elementType}/addElement")
 	public String addElement(@RequestParam("name") String name, @PathVariable("elementType") String elementType) {
-		System.out.println("addElement");
 		switch (elementType) {
 			case "filials" -> filialService.addFilial(name);
 			case "polyclinics" -> polyclinicService.addPolyclinic(name);
