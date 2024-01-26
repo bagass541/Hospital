@@ -246,7 +246,7 @@ a {
     padding-top: 0.7vh;
 }
 
-.view-list ul .chosenElement {
+.view-list ul .article-selected {
 	background-color: #F4DEDE;
 	border: 2px solid black;
 }
@@ -270,18 +270,25 @@ a {
 
 .content-list ul {
 	list-style: none;
-	min-height: 70vh;
+	min-height: 60vh;
 }
 
-.content-list ul li {
+.content-list ul .li-structure {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
 	background-color: #D9D0CF;
 	margin-bottom: 1.4vh;
 	background-image: url(images/sign-2.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	padding: 0.5vh 0 0.5vh 2vw;
+	padding: 0.5vh 0 0.5vh 2vw;		
 }
 
+.admin-input-structure {
+	font-size: 3vh;
+	margin-left: 5vw;
+}
 
 
 .container-services {
@@ -327,7 +334,7 @@ th
 }
 
 .button-procedure {
-	font-size: 3.5vh;
+	font-size: 3vh;
 }
 
 .table-content h1 {

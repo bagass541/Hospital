@@ -17,4 +17,15 @@ public class HospitalService {
 	public List<Hospital> getAllHospitals() {
 		return hospitalRepo.findAll();
 	}
+	
+	public void deleteHospitalById(long id) {
+		hospitalRepo.deleteById(id);
+	}
+	
+	public void addHospital(String name) {
+		Hospital hospital = new Hospital();
+		hospital.setName(name);
+		
+		hospitalRepo.save(hospital);
+	}
 }

@@ -17,4 +17,15 @@ public class PolyclinicService {
 	public List<Polyclinic> getAllPolyclinics() {
 		return polyclinicRepo.findAll();
 	}
+	
+	public void deletePolyclinicById(long id) {
+		polyclinicRepo.deleteById(id);
+	}
+	
+	public void addPolyclinic(String name) {
+		Polyclinic polyclinic = new Polyclinic();
+		polyclinic.setName(name);
+		
+		polyclinicRepo.save(polyclinic);
+	}
 }
