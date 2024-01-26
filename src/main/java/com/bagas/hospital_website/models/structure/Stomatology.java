@@ -15,7 +15,7 @@ public class Stomatology {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idy;
+	private long id;
 	
 	private String name;
 }
