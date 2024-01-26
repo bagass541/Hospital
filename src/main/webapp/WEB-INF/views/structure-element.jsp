@@ -45,20 +45,27 @@
         <div class="h1-structure-header" >
         <h1  id="heading">${h1Name}</h1>
         </div>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+        	<form method="post" id="addForm">
+            	<input class="admin-input-structure" type="text" name="name" placeholder="Введите название" required="required"> 
+            	<button class="button-procedure" type="submit">+</button>  
+        	</form>
+        </sec:authorize> 
         <div class="content">
         	<form method="post" id="deleteForm">          
             	<nav class="content-list">
                 	<ul>
                 		<c:forEach var="element" items="${structureElements}">               
-                			<li><a>${element.name}</a>
+                			<li class="li-structure"><a>${element.name}</a>
                 				<sec:authorize access="hasRole('ROLE_ADMIN')">
                 					<button class="button-procedure" value="${element.id}" name="structureElementId"><i class="fa fa-trash"></i></button>
                 				</sec:authorize>  
                 			</li>
-                		</c:forEach>                      
+                		</c:forEach>                     		              
                 	</ul>
            		</nav>
             </form>  
+           
         </div>
         </div>		        
     </div>    
@@ -66,37 +73,44 @@
 <script>
 	var ulList = document.getElementById('listArticles');
 	var deleteForm = document.getElementById('deleteForm');
+	var addForm = document.getElementById('addForm');
 	
 	var currentUrl = window.location.href;
 	var urlParts = currentUrl.split('/');
 	var elementType = urlParts[urlParts.length - 1];
 
 	var article = document.getElementById(elementType);
-	// Проверяем содержимое заголовка и применяем соответствующий стиль к кнопке
+	
 	switch(elementType) {
 		case 'filials':			
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/filials/deleteElement";
+			addForm.action = "/structure/filials/addElement";
 			break;
 		case 'polyclinics':
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/polyclinics/deleteElement";
+			addForm.action = "/structure/polyclinics/addElement";
 			break;
 		case 'hospitals':
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/hospitals/deleteElement";
+			addForm.action = "/structure/hospitals/addElement";
 			break;
 		case 'child-institutions':
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/child-institutions/deleteElement";
+			addForm.action = "/structure/child-institutions/addElement";
 			break;
 		case 'stomatologies':
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/stomatologies/deleteElement";
+			addForm.action = "/structure/stomatologies/addElement";
 			break;
 		case 'pharmacies':
 			article.classList.add("article-selected");
 			deleteForm.action = "/structure/pharmacies/deleteElement";
+			addForm.action = "/structure/pharmacies/addElement";
 			break;
 	};
 </script>
