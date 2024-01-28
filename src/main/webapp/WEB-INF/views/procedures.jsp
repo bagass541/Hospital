@@ -18,7 +18,7 @@
                 <li class="logo-main"><img class="logo-img" src = "../../images/logo.png" >
                     <a href="/">Гомельская центрльная городская<br>клиническая поликлиника</a></li>
                 <li class="about"><a href="about-us">О нас</a></li>
-                <li><a href='services'>Платные услуги</a></li>
+                <li><a href='procedures'>Платные услуги</a></li>
                 <li><a href='structure'>Наша структура</a></li>
                 <li><a href='contacts'>Контакты</a></li>
                 <sec:authorize access="isAnonymous()">    
@@ -51,9 +51,9 @@
                    				<td class="no-border-right normal-column">${procedure.price}</td>
                    			
                    				<sec:authorize access="hasRole('ROLE_ADMIN')">
-                   					<td class="td-button-add-service" class="small-column">
+                   					<td class="small-column">
                    						<form method="post" action="procedures/deleteProcedure">
-                   							<button class="button-procedure" value="${procedure.id}" name="procedureId"><i class="fa fa-trash"></i></button>
+                   							<button class="admin-button" value="${procedure.id}" name="procedureId"><i class="fa fa-trash"></i></button>
                    						</form>
                    					</td>                   			                    	
                    				</sec:authorize>
@@ -67,7 +67,7 @@
                 		<input type="text" name="name" placeholder="Введите название услуги" class="input-procedure" required="required">
                 		<input type="number" name="minutes" placeholder="Введите минуты" class="input-procedure" required="required">
                 		<input type="number" name="price" placeholder="Введите цену" class="input-procedure" required="required">                   			                				
-                		<button class="button-procedure" type="submit">+</button>               				              			                   			                     	
+                		<button class="admin-button" type="submit">+</button>               				              			                   			                     	
                 	</sec:authorize>
           		</form>  
         </div>
