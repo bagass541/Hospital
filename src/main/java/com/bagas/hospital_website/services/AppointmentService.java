@@ -42,37 +42,57 @@ public class AppointmentService {
 	@Scheduled(cron = "0 1 0 * * *")
 	public void generateAppointmentsForNextWeekday() {
 		LocalDate date = adjustWeekendToWeekday(LocalDate.now().plusDays(7));
-		generateAppointmentForDate(date);
+		List<Doctor> doctors = doctorService.getAllDoctors();
+		
+		generateAppointmentsForDate(date, doctors);
 	}
 	
 	@PostConstruct
 	public void generateAppointmentsForWeek() {
-		LocalDate date = adjustWeekendToWeekday(LocalDate.now());
+		LocalDate date = adjustWeekendToWeekday(LocalDate.now().plusDays(1));
+		
 		
 		Optional<Appointment> appointment = appointmentRepo.findAppointmentByDate(date);
 		if(appointment.isEmpty()) {
+			List<Doctor> doctors = doctorService.getAllDoctors();
 			for(int i = 0; i < 7; i++) {
-				generateAppointmentForDate(date);
+				generateAppointmentsForDate(date, doctors);
 				date = adjustWeekendToWeekday(date.plusDays(1));
 			}
 		}
 	}
 	
-	public void generateAppointmentForDate(LocalDate date) {
-		List<Doctor> doctors = doctorService.getAllDoctors();
+	public void generateAppointmentsForWeek(long idDoctor) {
+		LocalDate date = adjustWeekendToWeekday(LocalDate.now().plusDays(1));
+		Doctor doctor = doctorService.getDoctorById(idDoctor);
+
+		for(int i = 0; i < 7; i++) {
+			generateAppointmentsForDate(date, doctor);
+			date = adjustWeekendToWeekday(date.plusDays(1));
+		}	
+	}
+	
+	public void generateAppointmentsForDate(LocalDate date, List<Doctor> doctors) {
 		List<Appointment> appointments = new LinkedList<>();
 		
 		for(Doctor doctor : doctors) {
 			List<LocalTime> intervals = timeIntervalGenerator.generateIntervals(doctor.getStartWork(), doctor.getEndWork());
 			for(LocalTime interval : intervals) {
-				Appointment appointment = new Appointment();
-				appointment.setTime(date.atTime(interval));
-				appointment.setDoctor(doctor);
-				
+				Appointment appointment = createAppointment(date.atTime(interval), doctor);					
 				appointments.add(appointment);
 			}
-		}
+		}	
+		appointmentRepo.saveAll(appointments);
+	}
+	
+	public void generateAppointmentsForDate(LocalDate date, Doctor doctor) {
+		List<Appointment> appointments = new LinkedList<>();
 		
+		List<LocalTime> intervals = timeIntervalGenerator.generateIntervals(doctor.getStartWork(), doctor.getEndWork());
+		for(LocalTime interval : intervals) {
+			Appointment appointment = createAppointment(date.atTime(interval), doctor);		
+			appointments.add(appointment);
+		}		
 		appointmentRepo.saveAll(appointments);
 	}
 	
@@ -84,10 +104,17 @@ public class AppointmentService {
 		return date;
 	}
 	
+	private Appointment createAppointment(LocalDateTime time, Doctor doctor ) {
+		Appointment appointment = new Appointment();
+		appointment.setTime(time);
+		appointment.setDoctor(doctor);
+		
+		return appointment;
+	}
+	
 	public List<LocalDate> getAvailableDates(long doctorId) {
 		LocalDate startDate = LocalDate.now().plusDays(1);
-		LocalDate endDate = startDate.plusDays(7);
-		return appointmentRepo.findAvailableDatesByDoctorDates(doctorId, startDate, endDate).stream()
+		return appointmentRepo.findAvailableDatesByDoctorDates(doctorId, startDate).stream()
 				.map(Date::toLocalDate)
 				.collect(Collectors.toList());
 	}
