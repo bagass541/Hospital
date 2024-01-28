@@ -23,8 +23,16 @@ public class DoctorService {
 		return doctorRepo.findAll();
 	}
 	
+	public List<Doctor> getAllDoctorsOrderByDoctorTypeFio() {
+		return doctorRepo.findAllOrderByDoctorTypeFio();
+	}
+	
 	public List<Doctor> getDoctorsByType(String type) {
 		DoctorType doctorType = doctorTypeConverter.convertToEntityAttribute(type);
 		return doctorRepo.findByDoctorType(doctorType);
+	}
+	
+	public void deleteDoctorById(long id) {
+		doctorRepo.deleteById(id);
 	}
 }
