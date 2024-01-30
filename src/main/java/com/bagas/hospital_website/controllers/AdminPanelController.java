@@ -96,8 +96,8 @@ public class AdminPanelController {
 						  @RequestParam("password") String password,
 						  @RequestParam("fio") String fio,
 						  @RequestParam("numberPhone") String number,
-						  @RequestParam("selectRoleId") Long roleId) {
-		userService.addUser(username, password, fio, number, roleId);
+						  @RequestParam("role") String authority) {
+		userService.addUser(username, password, fio, number, authority);
 		return "redirect:/admin-panel/users";
 	}
 }

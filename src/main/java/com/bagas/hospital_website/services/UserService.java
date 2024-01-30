@@ -70,18 +70,18 @@ public class UserService implements UserDetailsService{
 	}
 	
 	@Transactional
-	public void addUser(String username, String password, String fio, String number, Long roleId) {			
-		User user = createUser(username, password, fio, number, roleId);
+	public void addUser(String username, String password, String fio, String number, String authority) {			
+		User user = createUser(username, password, fio, number, authority);
 		userRepo.save(user);
 		
 	}
 	
-	private User createUser(String username, String password, String fio, String number, Long roleId) {
+	private User createUser(String username, String password, String fio, String number, String authority) {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setFio(fio);
 		userInfo.setNumber(number);
 		
-		Role role = roleService.getById(roleId);
+		Role role = roleService.getByAuthority(authority);
 		
 		Set<Role> roles = new HashSet<>();
 		roles.add(role);

@@ -18,8 +18,8 @@ public class RoleService {
 		return roleRepo.findAll();
 	}
 	
-	public Role getById(Long id) {
-		return roleRepo.findById(id).get();
+	public Role getByAuthority(String authority) {
+		return roleRepo.findByAuthority(authority);
 	}
 }
 
