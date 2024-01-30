@@ -104,7 +104,7 @@ public class AppointmentService {
 		return date;
 	}
 	
-	private Appointment createAppointment(LocalDateTime time, Doctor doctor ) {
+	private Appointment createAppointment(LocalDateTime time, Doctor doctor) {
 		Appointment appointment = new Appointment();
 		appointment.setTime(time);
 		appointment.setDoctor(doctor);
