@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bagas.hospital_website.models.Appointment;
@@ -33,5 +35,12 @@ public class PersonalAccountController {
 		modelAndView.addObject("appointments", appointmentService.getAllAppointmentsByUser());
 		
 		return modelAndView;
+	}
+	
+	@PostMapping("/deleteAppointment")
+	public String deleteAppointment(@RequestParam("appointmentId") long id) {
+		appointmentService.deleteAppointmentById(id);
+		
+		return "redirect:/personal-account";
 	}
 }

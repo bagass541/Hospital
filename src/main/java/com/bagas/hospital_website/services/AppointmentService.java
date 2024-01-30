@@ -141,4 +141,8 @@ public class AppointmentService {
 		
 		return appointments;
 	}
+	
+	public void deleteAppointmentById(long id) {
+		appointmentRepo.deleteById(id);
+	}
 }
