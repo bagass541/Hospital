@@ -11,6 +11,8 @@ import com.bagas.hospital_website.models.DoctorType;
 import com.bagas.hospital_website.models.DoctorTypeConverter;
 import com.bagas.hospital_website.repositories.DoctorRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class DoctorService {
 
@@ -37,10 +39,12 @@ public class DoctorService {
 		return doctorRepo.findByDoctorType(doctorType);
 	}
 	
+	@Transactional
 	public void deleteDoctorById(long id) {
 		doctorRepo.deleteById(id);
 	}
 	
+	@Transactional
 	public long addDoctor(String doctorTypeStr, String fio, LocalTime startWork, LocalTime endWork) {
 		DoctorType doctorType = doctorTypeConverter.convertToEntityAttribute(doctorTypeStr);
 		
