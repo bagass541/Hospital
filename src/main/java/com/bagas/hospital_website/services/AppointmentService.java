@@ -23,6 +23,7 @@ import com.bagas.hospital_website.repositories.AppointmentRepository;
 import com.bagas.hospital_website.util.TimeIntervalGenerator;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.transaction.Transactional;
 
 @Service
 public class AppointmentService {
@@ -85,6 +86,7 @@ public class AppointmentService {
 		appointmentRepo.saveAll(appointments);
 	}
 	
+	@Transactional
 	public void generateAppointmentsForDate(LocalDate date, Doctor doctor) {
 		List<Appointment> appointments = new LinkedList<>();
 		
