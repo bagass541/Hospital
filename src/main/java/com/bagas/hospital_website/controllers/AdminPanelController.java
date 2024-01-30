@@ -14,8 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bagas.hospital_website.models.Doctor;
 import com.bagas.hospital_website.models.DoctorType;
+import com.bagas.hospital_website.models.Role;
+import com.bagas.hospital_website.models.User;
 import com.bagas.hospital_website.services.AppointmentService;
 import com.bagas.hospital_website.services.DoctorService;
+import com.bagas.hospital_website.services.RoleService;
+import com.bagas.hospital_website.services.UserService;
 
 import jakarta.validation.Valid;
 
@@ -28,6 +32,12 @@ public class AdminPanelController {
 	
 	@Autowired
 	private AppointmentService appointmentService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService;
 
 	@GetMapping
 	public String showAdminPanel() {
@@ -60,5 +70,34 @@ public class AdminPanelController {
 		appointmentService.generateAppointmentsForWeek(idDoctor);
 		
 		return "redirect:/admin-panel/doctors";
+	}
+	
+	@GetMapping("/users")
+	public ModelAndView showUsersPanel() {
+		List<User> users = userService.getAllUsersOrderByFio();
+		List<Role> roles = roleService.getAllRoles();
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("users", users);
+		modelAndView.addObject("roles", roles);
+		modelAndView.setViewName("users");
+		
+		return modelAndView;
+	}
+	
+	@PostMapping("/users/deleteUser") 
+	public String deleteUser(@RequestParam("userId") long id) {
+		userService.deleteUserById(id);
+		return "redirect:/admin-panel/users";
+	}
+	
+	@PostMapping("/users/addUser")
+	public String addUser(@RequestParam("username") String username,
+						  @RequestParam("password") String password,
+						  @RequestParam("fio") String fio,
+						  @RequestParam("numberPhone") String number,
+						  @RequestParam("selectRoleId") Long roleId) {
+		userService.addUser(username, password, fio, number, roleId);
+		return "redirect:/admin-panel/users";
 	}
 }
