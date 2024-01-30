@@ -492,19 +492,19 @@ td.no-border-right {
 	width: auto;
 }
 
-.table-doctors {
+.table-admin-panel {
 	border-collapse: collapse;
 	width: 90vw;
 	margin: 3vh 0 50vh 3vw;
 }
 
-.table-doctors tr td {
+.table-admin-panel tr td {
 	border: 2px solid black;
 	font-size: 3.6vh;
 	text-align: center;
 }
 
-.thead-doctors {
+.thead-panel {
 	font-weight: bold;
 }
 
@@ -518,29 +518,23 @@ td.no-border-right {
 	text-align: center;
 }
 
-/*.div-doctor-add form input{
-	margin: 2vh 1vw 0 0;
-	width: 20.2vw;
-	height: 2.2vh;
-} */
-
-.input-table {
+.input-doctors {
 	border-collapse: collapse;
 	margin: 2vh 0 0 2.9vw;
 }
 
-.input-table tr td {
+.input-doctors tr td {
 	border: 2px solid black;
 }
 
-.input-table tr select {
+.input-doctors tr select {
 	border: none;
 	outline: none;
 	font-size: 3.4vh;
 	min-width: 21.5vw;
 }
 
-.input-table tr td input {
+.input-doctors tr td input {
 	border: none;
 	outline: none;
 	font-size: 3.4vh;
@@ -548,14 +542,26 @@ td.no-border-right {
 	min-width: 21.5vw;
 }
 
-/*.form-add-doctor {
-	width: 90vw;
-	margin-left: 2.8vw;
-	
+.input-users tr td {
+	border: 2px solid black;
 }
 
-.form-add-doctor input {
-	font-size: 3.5vh;
-	margin: 2vh 0vw 0 0vw;
+.input-users {
+	border-collapse: collapse;
+	margin: 2vh 0 0 2.9vw;
+}
+
+.input-users tr td input {
+	border: none;
+	outline: none;
+	font-size: 3vh;
 	text-align: center;
-} */
+	min-width: 4vw;
+}
+
+.input-users tr select {
+	border: none;
+	outline: none;
+	font-size: 3vh;
+	min-width: 4vw;
+}
