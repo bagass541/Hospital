@@ -64,13 +64,13 @@
                     		<td>${user.username}</td>
                     		<td>${user.userInfo.fio}</td>
                     		<td>${user.userInfo.number}</td>
-                    		<td>
-                    			<sec:authorize access="hasRole('ROLE_ADMIN')">
+                    		<sec:authorize access="hasRole('ROLE_ADMIN')">
+                    			<td>                   			
                    					<form method="post" action="users/deleteUser">
                    						<button class="admin-button" value="${user.id}" name="userId"><i class="fa fa-trash"></i></button>
-                   					</form>
-                   				</sec:authorize>
-                    		</td>
+                   					</form>                  				
+                    			</td>
+                    		</sec:authorize>
                     	</tr>
                     </c:forEach>
                 </tbody>
