@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,7 +33,7 @@ public class User implements UserDetails {
 	
 	private String username;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private UserInfo userInfo;
 	
 	private String password;
@@ -49,7 +50,7 @@ public class User implements UserDetails {
 	@Column(name = "is_enabled")
 	boolean isEnabled;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	private Set<Role> authorities;
 
 }

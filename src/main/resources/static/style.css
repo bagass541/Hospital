@@ -348,7 +348,7 @@ th
 	font-size: 1.5vw;
 }
 
-.button-procedure {
+.admin-button {
 	font-size: 3vh;
 }
 
@@ -462,4 +462,106 @@ td.no-border-right {
 
 .table-reservations td{
 	border: 2px solid black;
+}
+
+.container-admin-panel {
+	grid-template-columns: 100vw;
+	grid-template-rows: 10vh 20vh 70vh;
+	grid-template-areas: 
+	"header"
+	"admin-header"
+	"admin-content";
+}
+
+.admin-header {
+	grid-area: admin-header;
+	justify-self: center;
+	font-size: 5vh;
+}
+
+.admin-content {
+	grid-area: admin-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.button-doctors, .button-users {
+	margin-top: 8vh;
+	font-size: 7vh;
+	width: auto;
+}
+
+.table-admin-panel {
+	border-collapse: collapse;
+	width: 90vw;
+	margin: 3vh 0 50vh 3vw;
+}
+
+.table-admin-panel tr td {
+	border: 2px solid black;
+	font-size: 3.6vh;
+	text-align: center;
+}
+
+.thead-panel {
+	font-weight: bold;
+}
+
+.div-find-input {
+	margin-top: 6vh;
+}
+
+.find-input {
+	font-size: 3vh;
+	width: 30vw;
+	text-align: center;
+}
+
+.input-doctors {
+	border-collapse: collapse;
+	margin: 2vh 0 0 2.9vw;
+}
+
+.input-doctors tr td {
+	border: 2px solid black;
+}
+
+.input-doctors tr select {
+	border: none;
+	outline: none;
+	font-size: 3.4vh;
+	min-width: 21.5vw;
+}
+
+.input-doctors tr td input {
+	border: none;
+	outline: none;
+	font-size: 3.4vh;
+	text-align: center;
+	min-width: 21.5vw;
+}
+
+.input-users tr td {
+	border: 2px solid black;
+}
+
+.input-users {
+	border-collapse: collapse;
+	margin: 2vh 0 0 2.9vw;
+}
+
+.input-users tr td input {
+	border: none;
+	outline: none;
+	font-size: 3vh;
+	text-align: center;
+	min-width: 4vw;
+}
+
+.input-users tr select {
+	border: none;
+	outline: none;
+	font-size: 3vh;
+	min-width: 4vw;
 }

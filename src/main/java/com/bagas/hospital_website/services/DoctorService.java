@@ -1,5 +1,6 @@
 package com.bagas.hospital_website.services;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import com.bagas.hospital_website.models.Doctor;
 import com.bagas.hospital_website.models.DoctorType;
 import com.bagas.hospital_website.models.DoctorTypeConverter;
 import com.bagas.hospital_website.repositories.DoctorRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class DoctorService {
@@ -23,8 +26,35 @@ public class DoctorService {
 		return doctorRepo.findAll();
 	}
 	
+	public Doctor getDoctorById(long id) {
+		return doctorRepo.findById(id).get();
+	}
+	
+	public List<Doctor> getAllDoctorsOrderByDoctorTypeFio() {
+		return doctorRepo.findAllOrderByDoctorTypeFio();
+	}
+	
 	public List<Doctor> getDoctorsByType(String type) {
 		DoctorType doctorType = doctorTypeConverter.convertToEntityAttribute(type);
 		return doctorRepo.findByDoctorType(doctorType);
+	}
+	
+	@Transactional
+	public void deleteDoctorById(long id) {
+		doctorRepo.deleteById(id);
+	}
+	
+	@Transactional
+	public long addDoctor(String doctorTypeStr, String fio, LocalTime startWork, LocalTime endWork) {
+		DoctorType doctorType = doctorTypeConverter.convertToEntityAttribute(doctorTypeStr);
+		
+		Doctor doctor = new Doctor();
+		doctor.setDoctorType(doctorType);
+		doctor.setFio(fio);
+		doctor.setStartWork(startWork);
+		doctor.setEndWork(endWork);
+		
+		 return doctorRepo.save(doctor).getId();
+		
 	}
 }

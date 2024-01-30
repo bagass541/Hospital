@@ -24,11 +24,10 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 	@Query(value = "SELECT * FROM appointments WHERE DATE(time) = :date LIMIT 1", nativeQuery = true)
 	Optional<Appointment> findAppointmentByDate(@Param("date") LocalDate date);
 	
-	@Query(value = "SELECT DISTINCT DATE(time) FROM appointments WHERE doctor_id = :doctorId AND user_id IS NULL AND DATE(time) BETWEEN :startDate AND :endDate",
+	@Query(value = "SELECT DISTINCT DATE(time) FROM appointments WHERE doctor_id = :doctorId AND user_id IS NULL AND DATE(time) >= :startDate",
 			nativeQuery = true)
 	List<Date> findAvailableDatesByDoctorDates(@Param("doctorId") long doctorId,
-									   		   @Param("startDate") LocalDate startDate,
-									   		   @Param("endDate") LocalDate endDate);
+									   		   @Param("startDate") LocalDate startDate);
 	
 	@Query(value = "SELECT cast(time as time) FROM appointments WHERE doctor_id = :doctorId AND user_id IS NULL AND DATE(time) = :date",
 			nativeQuery = true)

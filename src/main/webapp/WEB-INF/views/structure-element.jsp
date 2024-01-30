@@ -25,7 +25,7 @@
                 <sec:authorize access="hasRole('ROLE_USER')">
                 <li class="pers-acc"><a href='personal-account'>Личный кабинет</a></li>
                 </sec:authorize>	
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                 <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')">
                 <li class="admin-panel"><a href='admin-panel'>Админ-панель</a></li>
                 </sec:authorize>
             </ul>
@@ -51,7 +51,7 @@
         <sec:authorize access="hasRole('ROLE_ADMIN')">
         	<form method="post" id="addForm">
             	<input class="admin-input-structure" type="text" name="name" placeholder="Введите название" required="required"> 
-            	<button class="button-procedure" type="submit">+</button>  
+            	<button class="admin-button" type="submit">+</button>  
         	</form>
         </sec:authorize> 
         <div class="content">
@@ -61,14 +61,13 @@
                 		<c:forEach var="element" items="${structureElements}">               
                 			<li class="li-structure"><a>${element.name}</a>
                 				<sec:authorize access="hasRole('ROLE_ADMIN')">
-                					<button class="button-procedure" value="${element.id}" name="structureElementId"><i class="fa fa-trash"></i></button>
+                					<button class="admin-button" value="${element.id}" name="structureElementId"><i class="fa fa-trash"></i></button>
                 				</sec:authorize>  
                 			</li>
                 		</c:forEach>                     		              
                 	</ul>
            		</nav>
-            </form>  
-           
+            </form>             
         </div>
         </div>		        
     </div>    
