@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.bagas.hospital_website.models.structure.Pharmacy;
 import com.bagas.hospital_website.repositories.PharmacyRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class PharmacyService {
 
@@ -18,10 +20,12 @@ public class PharmacyService {
 		return pharmacyRepo.findAll();
 	}
 	
+	@Transactional
 	public void deletePharmacyById(long id) {
 		pharmacyRepo.deleteById(id);
 	}
 	
+	@Transactional
 	public void addPharmacy(String name) {
 		Pharmacy pharmacy = new Pharmacy();
 		pharmacy.setName(name);
