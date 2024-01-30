@@ -23,7 +23,7 @@
                 <sec:authorize access="hasRole('ROLE_USER')">
                 <li class="pers-acc"><a href='personal-account'>Личный кабинет</a></li>
                 </sec:authorize>	
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_DOCTOR')">
                 <li class="admin-panel"><a href='admin-panel'>Админ-панель</a></li>
                 </sec:authorize>
             </ul>

@@ -32,7 +32,7 @@
         	</div>  
         	<div class="div-doctor-add">
         		<form method="post" action="doctors/addDoctor">
-        			<table class="input-table">
+        			<table class="input-doctors">
         				<tbody>
         					<tr>
         						<td><select name="selectType">
@@ -40,7 +40,6 @@
         								<option value="${type.translate}">${type.translate}</option>
         							</c:forEach>
         						</select></td>
-        						<!-- <td><input type="text" name="doctorType" placeholder="Специализация врача" required="required"></td> -->
         						<td><input type="text" name="fio" placeholder="ФИО" required="required"></td>
         						<td><input type="time" name="startWork" placeholder="Начало рабочего дня" required="required"></td>
         						<td><input type="time" name="endWork" placeholder="Конец рабочего дня" required="required"></td>
@@ -50,8 +49,8 @@
         			</table>        				
         		</form>    		
         	</div>    	 	
-            <table class="table-doctors" id="table-doctors">
-                <thead class="thead-doctors">
+            <table class="table-admin-panel" id="table-doctors">
+                <thead class="thead-panel">
                     <tr>
                         <td>Специализация врача</td>
                         <td>ФИО</td>
@@ -67,9 +66,11 @@
                     		<td>${doctor.startWork}</td>
                     		<td>${doctor.endWork}</td>
                     		<td>
-                   				<form method="post" action="doctors/deleteDoctor">
-                   					<button class="admin-button" value="${doctor.id}" name="doctorId"><i class="fa fa-trash"></i></button>
-                   				</form>
+                    			<sec:authorize access="hasRole('ROLE_ADMIN')">
+                   					<form method="post" action="doctors/deleteDoctor">
+                   						<button class="admin-button" value="${doctor.id}" name="doctorId"><i class="fa fa-trash"></i></button>
+                   					</form>
+                   				</sec:authorize>
                     		</td>
                     	</tr>
                     </c:forEach>
