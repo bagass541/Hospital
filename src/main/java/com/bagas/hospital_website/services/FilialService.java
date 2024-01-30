@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.bagas.hospital_website.models.structure.Filial;
 import com.bagas.hospital_website.repositories.FilialRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class FilialService {
 	
@@ -18,10 +20,12 @@ public class FilialService {
 		return filialRepo.findAll();
 	}
 	
+	@Transactional
 	public void deleteFilialById(long id) {
 		filialRepo.deleteById(id);
 	}
 	
+	@Transactional
 	public void addFilial(String name) {
 		Filial filial = new Filial();
 		filial.setName(name);

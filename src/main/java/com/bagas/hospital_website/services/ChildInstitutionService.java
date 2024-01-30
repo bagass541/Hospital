@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.bagas.hospital_website.models.structure.ChildInstitution;
 import com.bagas.hospital_website.repositories.ChildInstitutionRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ChildInstitutionService {
 
@@ -18,10 +20,12 @@ public class ChildInstitutionService {
 		return childInstitutionRepo.findAll();
 	}
 	
+	@Transactional
 	public void deleteChildInstitutionById(long id) {
 		childInstitutionRepo.deleteById(id);
 	}
 	
+	@Transactional
 	public void addChildInstitution(String name) {
 		ChildInstitution childInstitution = new ChildInstitution();
 		childInstitution.setName(name);
