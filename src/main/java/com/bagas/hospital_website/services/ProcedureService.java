@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.bagas.hospital_website.models.Procedure;
 import com.bagas.hospital_website.repositories.ProcedureRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ProcedureService {
 	
@@ -18,10 +20,12 @@ public class ProcedureService {
 		return procedureRepo.findAll();
 	}
 	
+	@Transactional
 	public void deleteProcedure(long id) {
 		procedureRepo.deleteById(id);
 	}
 	
+	@Transactional
 	public void addProcedure(String name, int minutes, int price) {
 		Procedure procedure = new Procedure();
 		procedure.setName(name);
