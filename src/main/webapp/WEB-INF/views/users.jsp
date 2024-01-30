@@ -37,11 +37,18 @@
         					<tr>        						
         						<td><input type="text" name="username" placeholder="Логин" required="required"></td>
         						<td><input type="text" name="password" placeholder="Пароль" required="required"></td>
-        						<td><select name="selectRoleId">
-        							<c:forEach var="role" items="${roles}">
-        								<option value="${role.id}">${role.authority}</option>
-        							</c:forEach>
-        						</select></td>
+        						<sec:authorize access="hasRole('ROLE_ADMIN')">
+        							<td><select name="role">
+        								<c:forEach var="role" items="${roles}">
+        									<option value="${role.authority}">${role.authority}</option>
+        								</c:forEach>
+        							</select></td>
+        						</sec:authorize>
+        						<sec:authorize access="hasRole('ROLE_DOCTOR')">
+        							<td>
+        								<input type="hidden" name="role" value="ROLE_USER" readonly="readonly">
+        							</td>
+        						</sec:authorize>
         						<td><input type="text" name="fio" placeholder="ФИО" required="required"></td>
         						<td><input type="text" name="numberPhone" placeholder="Номер телефона" required="required"></td>
         						<td><button class="admin-button" type="submit">+</button></td>

@@ -33,7 +33,12 @@
             </sec:authorize>
             <form action="admin-panel/users">
                 <button class="button-users">Пользователи</button>
-            </form>         
+            </form>    
+            <sec:authorize access="hasRole('ROLE_DOCTOR')">
+            	<form action="admin-panel/appointments">
+                	<button class="button-doctors">Записи</button>
+            	</form>
+            </sec:authorize>     
         </div>       
     </div>
 </body>
