@@ -7,6 +7,7 @@
 <head>
     <title>Личный кабинет</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -43,7 +44,12 @@
                 	<tr>
                 		<td>${appointment.doctor.fio}</td>
                 		<fmt:parseDate value="${appointment.time}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
-                		<td><fmt:formatDate value="${parsedDate}" pattern="dd-MM-yyyy HH:mm" /></td>
+                		<td><fmt:formatDate value="${parsedDate}" pattern="dd.MM.yyyy HH:mm" /></td>
+                		<td>
+                			<form method="post" action="personal-account/deleteAppointment">
+                   				<button class="admin-button" value="${appointment.id}" name="appointmentId"><i class="fa fa-trash"></i></button>
+                   			</form>
+                		</td>
                 	</tr>
                 </c:forEach>
                </table>
