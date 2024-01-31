@@ -23,9 +23,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 
 	@Query(value = "SELECT * FROM appointments WHERE DATE(time) = :date LIMIT 1", nativeQuery = true)
 	Optional<Appointment> findAppointmentByDate(@Param("date") LocalDate date);
-	
-	@Query(value = "SELECT DISTINCT DATE(time) FROM appointments WHERE doctor_id = :doctorId AND user_id IS NULL AND DATE(time) >= :startDate",
-			nativeQuery = true)
+
+	@Query(value = "SELECT DISTINCT FUNCTION('DATE', a.time) FROM Appointment a WHERE a.doctor.id = :doctorId AND a.user.id IS NULL AND FUNCTION('DATE', a.time) >= :startDate")
 	List<Date> findAvailableDatesByDoctorDates(@Param("doctorId") long doctorId,
 									   		   @Param("startDate") LocalDate startDate);
 	
@@ -36,10 +35,14 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE appointments set user_id = :userId where doctor_id = :doctorId and user_id IS NULL and time = :timestamp", nativeQuery = true)
+	@Query(value = "UPDATE Appointment a SET a.user.id = :userId where a.doctor.id = :doctorId and a.user.id IS NULL and a.time = :timestamp")
 	void setUserToAppointmentByDoctorTimestamp(@Param("doctorId") long doctorId, 
 											   @Param("timestamp") LocalDateTime timestamp,
 											   @Param("userId") long userId);
 	
 	List<Appointment> findByUserOrderByTime(User user);
+	
+	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu where a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
+	List<Appointment> findByDoctorDate(@Param("doctorId") long doctorId, 
+									   @Param("date") LocalDate date);
 }

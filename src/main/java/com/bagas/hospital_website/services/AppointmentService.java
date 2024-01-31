@@ -142,7 +142,11 @@ public class AppointmentService {
 		return appointments;
 	}
 	
+	public List<Appointment> getAppointmentsByDoctorDate(long doctorId, LocalDate date) {
+		return appointmentRepo.findByDoctorDate(doctorId, date);
+
 	public void deleteAppointmentById(long id) {
 		appointmentRepo.deleteById(id);
+
 	}
 }
