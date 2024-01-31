@@ -31,23 +31,25 @@
         		<input class="find-input" type="text" id="find-input" onkeyup="filterByFio()" placeholder="Поиск по ФИО">	
         	</div>  
         	<div class="div-doctor-add">
-        		<form method="post" action="doctors/addDoctor">
-        			<table class="input-doctors">
-        				<tbody>
-        					<tr>
-        						<td><select name="selectType">
-        							<c:forEach var="type" items="${doctorTypes}">
-        								<option value="${type.translate}">${type.translate}</option>
-        							</c:forEach>
-        						</select></td>
-        						<td><input type="text" name="fio" placeholder="ФИО" required="required"></td>
-        						<td><input type="time" name="startWork" placeholder="Начало рабочего дня" required="required"></td>
-        						<td><input type="time" name="endWork" placeholder="Конец рабочего дня" required="required"></td>
-        						<td><button class="admin-button" type="submit">+</button></td>
-        					</tr>
-        				</tbody>   				
-        			</table>        				
-        		</form>    		
+        		<sec:authorize access="hasRole('ROLE_ADMIN')">
+        			<form method="post" action="doctors/addDoctor">
+        				<table class="input-doctors">
+        					<tbody>
+        						<tr>
+        							<td><select name="selectType">
+        								<c:forEach var="type" items="${doctorTypes}">
+        									<option value="${type.translate}">${type.translate}</option>
+        								</c:forEach>
+        							</select></td>
+        							<td><input type="text" name="fio" placeholder="ФИО" required="required"></td>
+        							<td><input type="time" name="startWork" placeholder="Начало рабочего дня" required="required"></td>
+        							<td><input type="time" name="endWork" placeholder="Конец рабочего дня" required="required"></td>
+        							<td><button class="admin-button" type="submit">+</button></td>
+        						</tr>
+        					</tbody>   				
+        				</table>        				
+        			</form>   
+        		</sec:authorize> 		
         	</div>    	 	
             <table class="table-admin-panel" id="table-doctors">
                 <thead class="thead-panel">
@@ -62,16 +64,16 @@
                 	<c:forEach var="doctor" items="${doctors}">
                 		<tr>
                     		<td>${doctor.doctorType.translate}</td>
-                    		<td>${doctor.fio}</td>
+                    		<td><a href="/admin-panel/doctors/${doctor.id}">${doctor.fio}</a></td>
                     		<td>${doctor.startWork}</td>
                     		<td>${doctor.endWork}</td>
-                    		<td>
-                    			<sec:authorize access="hasRole('ROLE_ADMIN')">
+                    		<sec:authorize access="hasRole('ROLE_ADMIN')">
+                    			<td>                    			
                    					<form method="post" action="doctors/deleteDoctor">
                    						<button class="admin-button" value="${doctor.id}" name="doctorId"><i class="fa fa-trash"></i></button>
-                   					</form>
-                   				</sec:authorize>
-                    		</td>
+                   					</form>                  				
+                    			</td>
+                    		</sec:authorize>
                     	</tr>
                     </c:forEach>
                 </tbody>

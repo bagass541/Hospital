@@ -26,19 +26,12 @@
             <h1>Админ-панель</h1>
         </div>
         <div class="admin-content">
-        	<sec:authorize access="hasRole('ROLE_ADMIN')">
-            	<form action="admin-panel/doctors">
-                	<button class="button-doctors">Врачи</button>
-            	</form>
-            </sec:authorize>
+            <form action="admin-panel/doctors">
+                <button class="button-doctors">Врачи</button>
+            </form>
             <form action="admin-panel/users">
                 <button class="button-users">Пользователи</button>
-            </form>    
-            <sec:authorize access="hasRole('ROLE_DOCTOR')">
-            	<form action="admin-panel/appointments">
-                	<button class="button-doctors">Записи</button>
-            	</form>
-            </sec:authorize>     
+            </form>         
         </div>       
     </div>
 </body>
