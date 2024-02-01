@@ -20,7 +20,7 @@
                 <li><a href='../structure'>Наша структура</a></li>
                 <li><a href='../contacts'>Контакты</a></li>
                 <sec:authorize access="isAnonymous()">    
-                <li class="enter"><a href='sign'>Вход</a></li>	
+                <li class="enter"><a href='../sign'>Вход</a></li>	
                 </sec:authorize>
                 <sec:authorize access="hasRole('ROLE_USER')">
                 <li class="pers-acc"><a href='personal-account'>Личный кабинет</a></li>
