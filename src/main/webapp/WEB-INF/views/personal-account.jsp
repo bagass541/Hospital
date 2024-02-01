@@ -37,11 +37,13 @@
             <div class="reservations">
                <table class="table-reservations"> 
                 <tr>
+                	<th>Специализация врача</th>
                     <th>Врач</th>
                     <th>Дата</th>
                 </tr>
                 <c:forEach var="appointment" items="${appointments}" >
                 	<tr>
+                		<td>${appointment.doctor.doctorType.translate}</td>
                 		<td>${appointment.doctor.fio}</td>
                 		<fmt:parseDate value="${appointment.time}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
                 		<td><fmt:formatDate value="${parsedDate}" pattern="dd.MM.yyyy HH:mm" /></td>
