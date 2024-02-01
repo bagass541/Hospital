@@ -20,7 +20,7 @@
                 <li><a href='../procedures'>Платные услуги</a></li>
                 <li><a href='../structure'>Наша структура</a></li>
                 <li><a href='../contacts'>Контакты</a></li>                               
-                <li class="admin-panel"><a href='admin-panel'>Админ-панель</a></li>
+                <li class="admin-panel"><a href='../../admin-panel'>Админ-панель</a></li>
             </ul>
         </nav>
          <div class="admin-header"> 
