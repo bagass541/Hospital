@@ -64,9 +64,9 @@ insert into users_info (fio, number) values
 ('Кривицкий И. С.', '+375252923210');
 
 INSERT INTO users (username, password, user_info_id, is_account_non_expired, is_account_non_locked, is_credentials_non_expired, is_enabled) VALUES 
-('doctor1', '$2a$10$DLvS10GKHDKQUJVBmwkuZO/rXcPEeo7IzndugTzzuZpGD5vxNQCZG', null, true, true, true, true), 
-('doctor2', '$2a$10$rUZMTke0JXEtDtzlnkEGDeyLZijfq9VyMIdeV7DTVxetaAVIpS6y.', null, true, true, true, true), 
-('doctor3', '$2a$10$N2g8u8JA6jlrpPE6zyMq0OFKYPMrinbjPvuqCVkmtSx8XdbQx1r06', null, true, true, true, true),
+('doctor1', '$2a$10$DgDXzVzN4xIlzFsSInDR9.tuwpjKpww7dcvg0AqtqcEu/O9r7.98i', null, true, true, true, true), 
+('doctor2', '$2a$10$/aKq4URiMx7SBLbsDK91nucUyEFK72qMYj/hPqwv/R.3w0H6fQwmy.', null, true, true, true, true), 
+('doctor3', '$2a$10$mwRENApyVipW.vWIPM/rr.pkapdkd9bVpP46i5XjmTDGMxS3fOhk2', null, true, true, true, true),
 ('admin', '$2a$10$aBfklvHvGoOKmF/iBe/oseWvpFcmMG12dIQdiW3Qu18LFFZQ3wfKW', null, true, true, true, true),
 ('root3', '$2a$10$wnQB0wjOEDL5uxt2HuV9O.RQ/156qSN7sR0RTmvfSCtc9we.ehf5G', 1, true, true, true, true), 
 ('root4', '$2a$10$.VvVcJwDeDmE.04oA/rK1.vxHoNv3GS/7eXtrI.6WKWgS/I6bv71S', 2, true, true, true, true),
