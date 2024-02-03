@@ -568,3 +568,78 @@ td.no-border-right {
 	font-size: 3vh;
 	min-width: 4vw;
 }
+
+.container-about-us {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 55vw 45vw;
+	grid-template-areas: 
+	"header header"
+	"text-about image-about";
+}
+
+.text-about {
+	grid-area: text-about;
+	margin: 3.5vh 0 0 4vw;
+	font-size: 3vh;
+	width: 42vw;
+	text-align: center;
+}
+
+.image-about {
+	grid-area: image-about;
+	margin-top: 20vh;
+}
+
+.image-hospital {
+	width: 80vh;
+	height: auto;
+}
+
+.container-contacts {
+	grid-template-rows: 10vh 90vh;
+	grid-template-columns: 100vw;
+	grid-template-areas: 
+	"header header"
+	"content-contacts content-contacts";
+}
+
+.content-contacts {
+	grid-area: content-contacts;
+}
+
+.content-contacts h1 {
+	text-align: center;
+	font-size: 5vh;
+}
+
+.content-contacts .numbers,
+.content-contacts .instagram,
+.content-contacts .vkontakte {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20vh 0 0 12.8vw;
+}
+
+.content-contacts .numbers .img-phone {
+	height: 20vh;
+	width: auto;
+}
+
+.content-contacts .numbers p,
+.content-contacts .vkontakte p,
+.content-contacts .instagram p {
+	font-size: 4vh;
+}
+
+.content-contacts .vkontakte .img-vk {
+	height: 18vh;
+	width: auto;
+}
+
+
+.content-contacts .instagram .img-inst {
+	height: 20vh;
+	width: auto;
+	margin-left: 2vw;
+}
