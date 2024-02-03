@@ -15,16 +15,32 @@ import com.bagas.hospital_website.models.User;
 import com.bagas.hospital_website.services.RoleService;
 import com.bagas.hospital_website.services.UserService;
 
+/**
+ * Контроллер UserPanelController обрабатывает HTTP-запросы, связанные с управлением пользователями в административной панели.
+ * Адрес запросов начинается с "/admin-panel/users", определенных аннотацией @RequestMapping.
+ */
+
 @Controller
 @RequestMapping(value = "/admin-panel/users")
 public class UserPanelController {
 
+	/**
+	 * Сервис пользователей для получения информации о доступных пользователях.
+	 */
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * Сервис ролей для получения информации о доступных ролях.
+	 */
 	@Autowired
 	private RoleService roleService;
 	
+	/**
+	 * Обрабатывает GET-запрос для отображения страницы с управлением пользователями.
+	 * 
+	 * @return ModelAndView с данными о пользователях и ролях.
+	 */ 
 	@GetMapping
 	public ModelAndView showUsersPanel() {
 		List<User> users = userService.getAllUsersOrderByFio();
@@ -38,12 +54,28 @@ public class UserPanelController {
 		return modelAndView;
 	}
 	
+	/**
+	 * Обрабатывает POST-запрос для удаления пользователя.
+	 * 
+	 * @param id ИД пользователя, который необходимо удалить.
+	 * @return Строка с перенаправлением на страницу управления пользователями после удаления.
+	 */
 	@PostMapping("/deleteUser") 
 	public String deleteUser(@RequestParam("userId") long id) {
 		userService.deleteUserById(id);
 		return "redirect:/admin-panel/users";
 	}
 	
+	/**
+	 * Обрабатывает POST-запрос для добавления нового пользователя.
+	 * 
+	 * @param username Логин нового пользователя.
+	 * @param password Пароль нового пользователя.
+	 * @param fio ФИО нового пользователя.
+	 * @param number Номер телефона нового пользователя.
+	 * @param authority Роль нового пользователя.
+	 * @return Строка с перенаправлением на страницу управления пользователями после добавления.
+	 */
 	@PostMapping("/addUser")
 	public String addUser(@RequestParam("username") String username,
 						  @RequestParam("password") String password,

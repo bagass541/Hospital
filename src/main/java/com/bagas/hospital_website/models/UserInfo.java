@@ -8,6 +8,10 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Сущность информации о пользователе.
+ */
+
 @Table(name = "users_info")
 @Entity
 @Data

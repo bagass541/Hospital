@@ -10,6 +10,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * Сущность записи к врачу.
+ */
+
 @Table(name = "appointments")
 @Entity
 @Data

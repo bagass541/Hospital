@@ -10,11 +10,16 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Сущность роли.
+ * Реализует интерфейс GrantedAuthority.
+ */
+
 @Table(name = "roles")
 @Entity
 @Data
 @NoArgsConstructor
-public class Role implements GrantedAuthority{
+public class Role implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

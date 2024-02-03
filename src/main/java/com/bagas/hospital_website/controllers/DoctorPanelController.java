@@ -19,17 +19,32 @@ import com.bagas.hospital_website.models.DoctorType;
 import com.bagas.hospital_website.services.AppointmentService;
 import com.bagas.hospital_website.services.DoctorService;
 
+/**
+ * Контроллер DoctorPanelController обрабатывает HTTP-запросы, связанные с административной панелью врачей.
+ * Адреса запросов начинаются с "/admin-panel/doctors", определенных аннотацией @RequestMapping.
+ */
+
 @Controller
 @RequestMapping(value = "/admin-panel/doctors")
 public class DoctorPanelController {
 	
+	/**
+	 * Сервис для работы с данными о врачах.
+	 */
 	@Autowired
 	private DoctorService doctorService;
 	
+	/**
+	 * Сервис для работы с записями на прием.
+	 */
 	@Autowired
 	private AppointmentService appointmentService;
 	
-	
+	/**
+	 * Обрабатывает GET-запрос для отображения страницы административной панели врачей.
+	 * 
+	 * @return ModelAndView для отображения страницы и передачи модели с данными.
+	 */
 	@GetMapping
 	public ModelAndView showDoctorsPanel() {
 		List<Doctor> doctors = doctorService.getAllDoctorsOrderByDoctorTypeFio();
@@ -41,12 +56,27 @@ public class DoctorPanelController {
 		return modelAndView;
 	}
 	
+	/**
+	 * Обрабатывает POST-запрос для удаления врача по указанному ИД и перенаправляет пользователя.
+	 * 
+	 * @param id ИД врача.
+	 * @return Строка перенаправления пользователя.
+	 */
 	@PostMapping("/deleteDoctor") 
 	public String deleteDoctor(@RequestParam("doctorId") long id) {
 		doctorService.deleteDoctorById(id);
 		return "redirect:/admin-panel/doctors";
 	}
 	
+	/**
+	 * Обрабатывает POST-запрос для добавления нового врача и создания записей на прием для него.
+	 * 
+	 * @param doctorType Тип врача.
+	 * @param fio ФИО врача.
+	 * @param startWork Время начала рабочего дня врача.
+	 * @param endWork Время окончания рабочего дня врача.
+	 * @return Строка перенаправления пользователя.
+	 */
 	@PostMapping("/addDoctor")
 	public String addDoctor(@RequestParam("selectType") String doctorType,
 							@RequestParam("fio") String fio,
@@ -58,6 +88,12 @@ public class DoctorPanelController {
 		return "redirect:/admin-panel/doctors";
 	}
 	
+	/**
+	 * Обрабатывает GET-запрос для отображения записей на прием для конкретного врача.
+	 * 
+	 * @param doctorId ИД врача.
+	 * @return ModelAndView для отображения страницы и передачи модели с данными.
+	 */
 	@GetMapping("/{doctorId}")
 	public ModelAndView showAppointmentsForDoctor(@PathVariable("doctorId") long doctorId) {
 		LocalDate currDate = LocalDate.now();
