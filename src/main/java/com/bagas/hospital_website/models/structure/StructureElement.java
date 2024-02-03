@@ -6,6 +6,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 
+/**
+ * Абстрактный класс для структурных элементов.
+ * Расширяет класс StructureElement.
+ */
+
 @MappedSuperclass
 @Data
 public class StructureElement {

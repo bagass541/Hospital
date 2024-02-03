@@ -7,6 +7,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * Сущность процедуры.
+ */
+
 @Table(name = "procedures")
 @Entity
 @Data

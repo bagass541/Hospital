@@ -19,6 +19,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Сущность пользователя.
+ * Реализует интерфейс UserDetails.
+ */
+
 @Table(name = "users")
 @Entity
 @Data

@@ -21,18 +21,40 @@ import com.bagas.hospital_website.repositories.UserRepository;
 
 import jakarta.transaction.Transactional;
 
-@Service
-public class UserService implements UserDetailsService{
+/**
+ * Класс UserService предоставляет функциональность для управления пользователями в системе.
+ * Реализует интерфейс UserDetailsService, необходимый для аутентификации и авторизации пользователей.
+ * Взаимодействует с UserRepository, RoleService и PasswordEncoder для доступа и управления данными пользователей в базе данных.
+ */
 
+@Service
+public class UserService implements UserDetailsService {
+
+	/**
+	 * Репозиторий UserRepository для доступа и управления данными пользователей в базе данных.
+	 */
 	@Autowired
 	private UserRepository userRepo;
 	
+	/**
+	 * Сервис RoleService для получения информации о ролях пользователей.
+	 */
 	@Autowired
 	private RoleService roleService;
 	
+	/**
+	 * Объект для хеширования паролей.
+	 */
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	/**
+	 * Загружает пользователя по его логину.
+	 * 
+	 * @param username Логин пользователя.
+	 * @return UserDetails объект пользователя.
+	 * @throws UsernameNotFoundException Если пользователь с указанным именем не найден.
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<User> userOptional = userRepo.findByUsername(username);
@@ -45,30 +67,64 @@ public class UserService implements UserDetailsService{
 		return user;
 	}
 	
+	/**
+	 * Возвращает список всех пользователей, отсортированных по ФИО.
+	 * 
+	 * @return Список пользователей.
+	 */
 	public List<User> getAllUsersOrderByFio() {
 		return userRepo.findAllUsersOrderByFio();
 	}
 	
+	/**
+	 * Возвращает ФИО текущего пользователя.
+	 * 
+	 * @return ФИО текущего пользователя.
+	 */
 	public String getFio() {
 		User user = getCurrentUser();		
 		return user.getUserInfo().getFio();
 	}
 	
+	/**
+	 * Возвращает номер текущего пользователя.
+	 * 
+	 * @return Номер текущего пользователя.
+	 */
 	public String getNumber() {
 		User user = getCurrentUser();
 		return user.getUserInfo().getNumber();
 	}
 	
+	/**
+	 * Возвращает объект текущего пользователя.
+	 * 
+	 * @return Объект текущего пользователя.
+	 */
 	public User getCurrentUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		return (User) authentication.getPrincipal();
 	}
 	
+	/**
+	 * Удаляет пользователя по его ИД.
+	 * 
+	 * @param id ИД пользователя, которого необходимо удалить.
+	 */
 	@Transactional
 	public void deleteUserById(long id) {
 		userRepo.deleteById(id);
 	}
 	
+	/**
+	 * Добавляет нового пользователя с указанными параметрами.
+	 * 
+	 * @param username Логин нового пользователя.
+	 * @param password Пароль нового пользователя.
+	 * @param fio ФИО нового пользователя.
+	 * @param number Номер нового пользователя.
+	 * @param authority Роль нового пользователя.
+	 */
 	@Transactional
 	public void addUser(String username, String password, String fio, String number, String authority) {			
 		User user = createUser(username, password, fio, number, authority);
@@ -76,6 +132,16 @@ public class UserService implements UserDetailsService{
 		
 	}
 	
+	/**
+	 * Создает и возвращает объект пользователя на основе переданных параметров.
+	 * 
+	 * @param username Логин нового пользователя.
+	 * @param password Пароль нового пользователя.
+	 * @param fio ФИО нового пользователя.
+	 * @param number Номер нового пользователя.
+	 * @param authority Роль нового пользователя.
+	 * @return Объект пользователя.
+	 */
 	private User createUser(String username, String password, String fio, String number, String authority) {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setFio(fio);

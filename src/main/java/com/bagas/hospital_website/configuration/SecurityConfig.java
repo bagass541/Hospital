@@ -10,16 +10,35 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * Конфигурационный класс SecurityConfig определяет конфигурацию безопасности для веб-приложения.
+ * Использует Spring Security для настройки аутентификации и авторизации пользователей.
+ * Также определяет настройки фильтрации HTTP-запросов и шифрования паролей.
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-
+	/**
+	 * Определяет объект AuthenticationManager для аутентификации пользователей.
+	 * 
+	 * @param configuration Конфигурация аутентификации.
+	 * @return Объект AuthenticationManager.
+	 * @throws Exception Возникает, если не удается создать объект AuthenticationManager.
+	 */
 	@Bean
 	AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception {
 		return configuration.getAuthenticationManager();
 	}
 	
+	/**
+	 * Определяет цепь фильтров безопасности для обработки HTTP-запросов и настройки авторизации.
+	 * 
+	 * @param http Объект HttpSecurity для настройки фильтрации HTTP-запросов.
+	 * @return Объект SecurityFilterChain.
+	 * @throws Exception Возникает, если не удается настроить SecurityFilterChain.
+	 */
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -40,6 +59,11 @@ public class SecurityConfig {
 		return http.build();
 	}
 
+    /**
+     * Определяет объект PasswordEncoder для шифрования паролей пользователей.
+     * 
+     * @return Объект PasswordEncoder.
+     */
     @Bean
     PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

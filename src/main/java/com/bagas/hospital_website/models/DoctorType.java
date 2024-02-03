@@ -3,6 +3,10 @@ package com.bagas.hospital_website.models;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Перечисление, представляющее типы докторов.
+ */
+
 @RequiredArgsConstructor
 @Getter
 public enum DoctorType {
@@ -18,6 +22,12 @@ public enum DoctorType {
 	
 	private final String translate;
 
+	/**
+	 * Получить enum-type тип доктора по его переводу.
+	 * 
+	 * @param translate Перевод наименования типа доктора.
+	 * @return Тип доктора, соответствующий переданному переводу, или null, если такого типа нет.
+	 */
 	public static DoctorType getByTranslate(String translate) {
 		
 		for(DoctorType type : values()) {
