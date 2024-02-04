@@ -24,51 +24,54 @@ docker-compose up
 ## Работа веб-приложения
 
 Все следующие страницы будут представлены в 2-3 вариантах: 
-1 вариант - обычный пользователь
-2 вариант - пользователь с ролью врача
-3 вариант - админ
+1) - обычный пользователь
+2) - пользователь с ролью врача
+3) - админ
 
 - Основная страница
-1)
-2)
-3)
+1) ![](src/main/resources/static/images/readme-images/home.png)
+2) тут идентично только вместо "Личный кабинет" - "Админ-панель"
+3) тут идентично только вместо "Личный кабинет" - "Админ-панель"
 
 - Страница "О нас"
-1)
-2)
-3)
+1) ![](src/main/resources/static/images/readme-images/about-us.png)
+2) тут идентично только вместо "Личный кабинет" - "Админ-панель"
+3) тут идентично только вместо "Личный кабинет" - "Админ-панель"
 
 - Страница "Платные услуги"
-1)
-2)
-3)
+1) ![](src/main/resources/static/images/readme-images/procedures-user.png)
+2) тут идентично, как у user, только вместо "Личный кабинет" - "Админ-панель"
+3) ![](src/main/resources/static/images/readme-images/procedures-admin.png)
 
 - Страница "Наша структура"
-1)
-2)
-3)
+1) ![](src/main/resources/static/images/readme-images/structure.png)
+2) тут идентично только вместо "Личный кабинет" - "Админ-панель"
+3) тут идентично только вместо "Личный кабинет" - "Админ-панель"
 
 - Пример страницы структурного элемента
-1)
-2)
-3)
+1) ![](src/main/resources/static/images/readme-images/structure-element-user.png)
+2) тут идентично, как у user, только вместо "Личный кабинет" - "Админ-панель"
+3) ![](src/main/resources/static/images/readme-images/structure-element-admin.png)
 
 - Страница входа
+![](src/main/resources/static/images/readme-images/login.png)
 
 - Страница личного кабинета
+![](src/main/resources/static/images/readme-images/personal-account.png)
 
 - Страница админ панели
 Здесь можно выбрать панель, которая нам нужна для использования
+![](src/main/resources/static/images/readme-images/admin-panel.png)
 
 - Панель врачей
-2)
-3)
+2) ![](src/main/resources/static/images/readme-images/doctors-panel-doctor.png)
+3) ![](src/main/resources/static/images/readme-images/doctors-panel-admin.png)
 
 - Страница расписания для врача, на которого вы кликнули
-
+![](src/main/resources/static/images/readme-images/appointments-today.png)
 
 - Панель пользователей
-2)
-3)
+2) ![](src/main/resources/static/images/readme-images/users-panel-doctor.png)
+3) ![](src/main/resources/static/images/readme-images/users-panel-admin.png)
 
 Все кнопки в панелях рабочие и можно создавать новые записи или уже удалять.
