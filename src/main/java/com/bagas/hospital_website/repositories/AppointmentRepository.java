@@ -16,7 +16,6 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import com.bagas.hospital_website.models.User;
 
 /**
  * Репозиторий для доступа к сущностям Appointment.
@@ -71,14 +70,16 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 											   @Param("timestamp") LocalDateTime timestamp,
 											   @Param("userId") long userId);
 	
-<<<<<<< HEAD
 	/**
 	 * Находит все записи на прием для указанного пользователя, сортированние по дате и времени.
 	 * 
 	 * @param user Пользователь, по которому производится поиск.
+	 * @param date Сегодняшняя дата
 	 * @return Список записей на прием для указанного пользователя.
 	 */
-	List<Appointment> findByUserOrderByTime(User user);
+	@Query(value = "SELECT a FROM Appointment a WHERE FUNCTION('DATE', a.time) > :date AND a.user.id = :userId ORDER BY a.time")
+	List<Appointment> findByUserOrderByTime(@Param("userId") long userId, 
+											@Param("date") LocalDate date);
 	
 	/**
 	 * Находит все записи на прием для указанного доктора на указанную дату.
@@ -87,14 +88,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 	 * @param date Дата приема.
 	 * @return Список записей на прием для указанного доктора и даты.
 	 */
-	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu where a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
-=======
-	@Query(value = "SELECT a FROM Appointment a WHERE FUNCTION('DATE', a.time) > :date AND a.user.id = :userId")
-	List<Appointment> findByUserOrderByTime(@Param("userId") long userId, 
-											@Param("date") LocalDate date);
-	
 	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu WHERE a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
->>>>>>> 8b5a4b2 (improve method for finding appointments for user)
 	List<Appointment> findByDoctorDate(@Param("doctorId") long doctorId, 
 									   @Param("date") LocalDate date);
 }
