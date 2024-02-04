@@ -217,7 +217,8 @@ public class AppointmentService {
 	 */
 	public List<Appointment> getAllAppointmentsByUser() {
 		User user = userService.getCurrentUser();
-		List<Appointment> appointments =  appointmentRepo.findByUserOrderByTime(user);
+		
+		List<Appointment> appointments =  appointmentRepo.findByUserOrderByTime(user.getId(), LocalDate.now());
 		
 		return appointments;
 	}

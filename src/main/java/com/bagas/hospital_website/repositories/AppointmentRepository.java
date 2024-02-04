@@ -66,11 +66,12 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 	 */
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE Appointment a SET a.user.id = :userId where a.doctor.id = :doctorId and a.user.id IS NULL and a.time = :timestamp")
+	@Query(value = "UPDATE Appointment a SET a.user.id = :userId WHERE a.doctor.id = :doctorId and a.user.id IS NULL and a.time = :timestamp")
 	void setUserToAppointmentByDoctorTimestamp(@Param("doctorId") long doctorId, 
 											   @Param("timestamp") LocalDateTime timestamp,
 											   @Param("userId") long userId);
 	
+<<<<<<< HEAD
 	/**
 	 * Находит все записи на прием для указанного пользователя, сортированние по дате и времени.
 	 * 
@@ -87,6 +88,13 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 	 * @return Список записей на прием для указанного доктора и даты.
 	 */
 	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu where a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
+=======
+	@Query(value = "SELECT a FROM Appointment a WHERE FUNCTION('DATE', a.time) > :date AND a.user.id = :userId")
+	List<Appointment> findByUserOrderByTime(@Param("userId") long userId, 
+											@Param("date") LocalDate date);
+	
+	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu WHERE a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
+>>>>>>> 8b5a4b2 (improve method for finding appointments for user)
 	List<Appointment> findByDoctorDate(@Param("doctorId") long doctorId, 
 									   @Param("date") LocalDate date);
 }
