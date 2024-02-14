@@ -89,6 +89,10 @@ docker-compose up
 ![](src/main/resources/static/images/readme-images/personal-account.png)
 
 
+## Страница записи к врачу
+
+![](src/main/resources/static/images/readme-images/make-appointment.png)
+
 ## Страница админ панели
 Здесь можно выбрать панель, которая нам нужна для использования
 
