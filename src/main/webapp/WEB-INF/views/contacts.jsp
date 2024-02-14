@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-        <title>Главная страница</title>
+        <title>Контакты</title>
         <link rel="stylesheet" href="style.css">
 </head>
 

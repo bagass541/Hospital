@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Личный кабинет</title>
+    <title>Пользователи</title>
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css">
 </head>

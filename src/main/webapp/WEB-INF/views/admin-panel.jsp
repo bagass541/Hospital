@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Личный кабинет</title>
+    <title>Админ-панель</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
