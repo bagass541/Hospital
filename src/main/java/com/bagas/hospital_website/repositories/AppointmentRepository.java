@@ -88,7 +88,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 	 * @param date Дата приема.
 	 * @return Список записей на прием для указанного доктора и даты.
 	 */
-	@Query(value = "SELECT a FROM Appointment a JOIN a.user au JOIN au.userInfo auu WHERE a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
+	@Query(value = "SELECT a FROM Appointment a LEFT JOIN FETCH a.user au LEFT JOIN FETCH au.userInfo auu WHERE a.doctor.id = :doctorId AND FUNCTION('DATE', a.time) = :date")
 	List<Appointment> findByDoctorDate(@Param("doctorId") long doctorId, 
 									   @Param("date") LocalDate date);
 }

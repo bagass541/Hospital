@@ -28,7 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 * 
 	 * @return Список пользователей, отсортированных по ФИО.
 	 */
-	@Query("SELECT u FROM User u JOIN u.authorities a JOIN u.userInfo ui where a.authority = 'ROLE_USER' ORDER BY ui.fio")
+	@Query("SELECT u FROM User u LEFT JOIN FETCH u.authorities a LEFT JOIN FETCH u.userInfo ui where a.authority = 'ROLE_USER' ORDER BY ui.fio")
 	List<User> findAllUsersOrderByFio();
 	
 }
