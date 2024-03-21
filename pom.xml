@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>com.bagas</groupId>
 	<artifactId>hospital_website</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
+	<packaging>war</packaging>
 	<name>hospital_website</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -63,7 +64,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -99,7 +99,9 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			
+			<plugin>
+		    	<artifactId>maven-war-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 
